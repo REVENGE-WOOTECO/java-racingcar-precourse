@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.Collections;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -23,17 +25,11 @@ public class Car {
         return position;
     }
 
-    @Override
-    public String toString() {
-        return name + " : " + printBar();
+    public void showStatus() {
+        System.out.println(name + " : " + printBar());
     }
 
     private String printBar() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < position; i++) {
-            sb.append("-");
-        }
-        return sb.toString();
+        return String.join("", Collections.nCopies(this.position, "-"));
     }
-
 }

@@ -25,7 +25,7 @@ public class CarController {
         System.out.println("\n실행 결과");
 
         for (int i = 0; i < repeatCount; i++) {
-            executeByRandomNumber();
+            executeEachCar();
             System.out.println();
         }
         showWinner();
@@ -40,10 +40,10 @@ public class CarController {
         System.out.print("최종 우승자 : " + result);
     }
 
-    private void executeByRandomNumber() {
+    private void executeEachCar() {
         for (Car car : carList) {
             maxNumber = Math.max(maxNumber, car.decideMoving(Randoms.pickNumberInRange(0, 9)));
-            System.out.println(car);
+            car.showStatus();
         }
     }
 }
