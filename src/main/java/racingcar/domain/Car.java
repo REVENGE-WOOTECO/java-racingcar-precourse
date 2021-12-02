@@ -8,5 +8,23 @@ public class Car {
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public void decideMoving(int randomNumber) {
+        if (randomNumber >= 4) {
+            position++;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return name + " : " + printBar();
+    }
+
+    private String printBar() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < position; i++) {
+            sb.append("-");
+        }
+        return sb.toString();
+    }
+
 }

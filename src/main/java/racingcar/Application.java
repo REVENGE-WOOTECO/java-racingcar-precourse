@@ -12,7 +12,6 @@ public class Application {
         CarController carController = CarController.makeCarList(cars);
 
         int repeatCount = InputView.requestRepeatCount();
-        carController.gameStart(repeatCount);
-
+        carController.gameExecute(repeatCount);
     }
 }
