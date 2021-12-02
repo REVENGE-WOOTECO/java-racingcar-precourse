@@ -8,10 +8,19 @@ public class Car {
         this.name = name;
     }
 
-    public void decideMoving(int randomNumber) {
+    public int decideMoving(int randomNumber) {
         if (randomNumber >= 4) {
             position++;
         }
+        return position;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     @Override
