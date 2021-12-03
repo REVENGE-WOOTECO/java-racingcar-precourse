@@ -39,4 +39,11 @@ class InputValidatorTest {
     void count_성공_검증(String input) {
         assertThat(InputValidator.validateCount(input)).isEqualTo(true);
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"lee,lee", "jo,jo", "aaa,aaa"})
+    void 중복_이름_실패_검증(String input) {
+        assertThat(InputValidator.validateNameList(input)).isEqualTo(null);
+    }
+
 }

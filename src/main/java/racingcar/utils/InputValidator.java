@@ -16,7 +16,7 @@ public class InputValidator {
 
     /**
      * 1. 알파벳, 쉼표 외 입력 여부 검증
-     * 2. parsing 후 각각 String의 길이 검증
+     * 2. parsing 후 name 길이 및 중복 검증
      */
     public static List<String> validateNameList(String input) {
 
@@ -26,8 +26,10 @@ public class InputValidator {
 
         List<String> names = parsingNameList(input);
 
-
-        return isValidLength(input);
+        if (isValidLengthAndNoOverlap(names)) {
+            return names;
+        }
+        return null;
     }
 
     /**
@@ -44,23 +46,30 @@ public class InputValidator {
         return true;
     }
 
+    private static boolean isValidLengthAndNoOverlap(List<String> names) {
+        try {
+            validateByLength(names);
+            validateByOverlap(names);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+
+    private static void validateByOverlap(List<String> names) {
+        long overlapRemoveCount = names.stream()
+            .distinct()
+            .count();
+        if (overlapRemoveCount != names.size()) {
+            throw new IllegalArgumentException("[ERROR] 중복된 이름이 있습니다.");
+        }
+    }
+
     private static void isValidRegexCount(String input) {
         if (!patternForCount.matcher(input).matches()) {
             throw new IllegalArgumentException("[ERROR] 0 이상의 숫자만 입력하세요.");
         }
-    }
-
-    private static List<String> isValidLength(String input) {
-        List<String> names;
-        try {
-            names = parsingNameList(input);
-            validateByLength(names);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
-
-        return names;
     }
 
     private static boolean isValidRegexName(String input) {
