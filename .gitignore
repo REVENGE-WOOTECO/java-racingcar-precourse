@@ -4,7 +4,6 @@
 !gradle/wrapper/gradle-wrapper.jar
 /out/
 /target/
-src/test/java/racingcar/StringTest.java
 
 ### STS ###
 .apt_generated

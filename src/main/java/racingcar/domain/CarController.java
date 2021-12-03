@@ -32,8 +32,9 @@ public class CarController {
     }
 
     private void showWinner() {
+
         String result = carList.stream()
-            .filter(car -> car.getPosition() == maxNumber)
+            .filter(car -> car.isYourPosition(maxNumber))
             .map(Car::getName)
             .collect(joining(", "));
 
@@ -42,6 +43,7 @@ public class CarController {
 
     private void executeEachCar() {
         for (Car car : carList) {
+            // TODO
             maxNumber = Math.max(maxNumber, car.decideMoving(Randoms.pickNumberInRange(0, 9)));
             car.showStatus();
         }

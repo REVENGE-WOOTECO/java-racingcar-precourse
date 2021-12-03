@@ -21,8 +21,8 @@ public class Car {
         return name;
     }
 
-    public int getPosition() {
-        return position;
+    public boolean isYourPosition(int maxNumber) {
+        return maxNumber == position;
     }
 
     public void showStatus() {
@@ -32,4 +32,5 @@ public class Car {
     private String printBar() {
         return String.join("", Collections.nCopies(this.position, "-"));
     }
+
 }
