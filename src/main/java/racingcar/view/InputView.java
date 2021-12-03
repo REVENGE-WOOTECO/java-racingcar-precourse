@@ -17,7 +17,8 @@ public class InputView {
     private final static String ERROR_NAME_LENGTH = "[ERROR] 길이가 5 초과인 이름은 입력할 수 없습니다. 다시 입력해주세요.";
     private final static String ERROR_DUPLICATE_NAME = "[ERROR] 동일한 이름은 입력할 수 없습니다. 다시 입력해주세요.";
     private final static String ERROR_TRY_NUMBER_LETTER = "[ERROR] 시도 횟수는 숫자만 입력할 수 있습니다. 다시 입력해주세요.";
-
+    private final static String ERROR_TRY_NUMBER_RANGE = "[ERROR] 시도 횟수는 1이상의 숫자만 입력할 수 있습니다. 다시 입력해주세요.";
+    
     public List<String> inputCarNames() {
         System.out.println(REQUEST_INPUT_CAR_NAMES);
         List<String> carNames = splitAndTrimInputCarNames();
@@ -76,10 +77,24 @@ public class InputView {
 
     private boolean isValidInputTryNumber(String tryCount) {
         try {
+            validateDigit(tryCount);
+            validateCountRange(tryCount);
             return true;
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return false;
+        }
+    }
+
+    private void validateDigit(String tryCount) {
+        if (tryCount.chars().anyMatch(Character::isLetter)) {
+            throw new IllegalArgumentException(ERROR_TRY_NUMBER_LETTER);
+        }
+    }
+
+    private void validateCountRange(String tryCount) {
+        if (Integer.parseInt(tryCount) < 1) {
+            throw new IllegalArgumentException(ERROR_TRY_NUMBER_RANGE);
         }
     }
 }
