@@ -36,6 +36,7 @@ public class InputView {
     private boolean isValidInputCarNames(List<String> carNames) {
         try {
             validateWhiteSpaceName(carNames);
+            validateNameLength(carNames);
             validateDuplicate(carNames);
             return true;
         } catch (IllegalArgumentException e) {
@@ -47,6 +48,12 @@ public class InputView {
     private void validateWhiteSpaceName(List<String> carNames) {
         if (carNames.stream().anyMatch(String::isEmpty)) {
             throw new IllegalArgumentException(ERROR_WHITE_SPACE_NAME);
+        }
+    }
+
+    private void validateNameLength(List<String> carNames) {
+        if (carNames.stream().anyMatch(x -> x.length() > 5)) {
+            throw new IllegalArgumentException(ERROR_NAME_LENGTH);
         }
     }
 
