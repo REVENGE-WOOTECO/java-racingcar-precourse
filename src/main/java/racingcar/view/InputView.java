@@ -35,12 +35,19 @@ public class InputView {
 
     private boolean isValidInputCarNames(List<String> carNames) {
         try {
+            validateWhiteSpaceName(carNames);
             validateDuplicate(carNames);
             return true;
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
         return false;
+    }
+
+    private void validateWhiteSpaceName(List<String> carNames) {
+        if (carNames.stream().anyMatch(String::isEmpty)) {
+            throw new IllegalArgumentException(ERROR_WHITE_SPACE_NAME);
+        }
     }
 
     private void validateDuplicate(List<String> carNames) throws IllegalArgumentException {
