@@ -1,7 +1,9 @@
 package racingcar.view;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Console;
@@ -33,10 +35,18 @@ public class InputView {
 
     private boolean isValidInputCarNames(List<String> carNames) {
         try {
+            validateDuplicate(carNames);
             return true;
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
         return false;
+    }
+
+    private void validateDuplicate(List<String> carNames) throws IllegalArgumentException {
+        Set<String> nonDuplicateNames = new HashSet<>(carNames);
+        if (nonDuplicateNames.size() != carNames.size()) {
+            throw new IllegalArgumentException(ERROR_DUPLICATE_NAME);
+        }
     }
 }
