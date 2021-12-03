@@ -16,6 +16,7 @@ public class InputView {
     private final static String ERROR_WHITE_SPACE_NAME = "[ERROR] 공백인 이름은 입력할 수 없습니다. 다시 입력해주세요.";
     private final static String ERROR_NAME_LENGTH = "[ERROR] 길이가 5 초과인 이름은 입력할 수 없습니다. 다시 입력해주세요.";
     private final static String ERROR_DUPLICATE_NAME = "[ERROR] 동일한 이름은 입력할 수 없습니다. 다시 입력해주세요.";
+    private final static String ERROR_TRY_NUMBER_LETTER = "[ERROR] 시도 횟수는 숫자만 입력할 수 있습니다. 다시 입력해주세요.";
 
     public List<String> inputCarNames() {
         System.out.println(REQUEST_INPUT_CAR_NAMES);
@@ -24,6 +25,15 @@ public class InputView {
             carNames = splitAndTrimInputCarNames();
         }
         return carNames;
+    }
+
+    public int inputTryNumber() {
+        System.out.println(REQUEST_INPUT_TRY_NUMBER);
+        String tryCount = Console.readLine();
+        while (!isValidInputTryNumber(tryCount)) {
+            tryCount = Console.readLine();
+        }
+        return Integer.parseInt(tryCount);
     }
 
     private List<String> splitAndTrimInputCarNames() {
@@ -57,10 +67,19 @@ public class InputView {
         }
     }
 
-    private void validateDuplicate(List<String> carNames) throws IllegalArgumentException {
+    private void validateDuplicate(List<String> carNames) {
         Set<String> nonDuplicateNames = new HashSet<>(carNames);
         if (nonDuplicateNames.size() != carNames.size()) {
             throw new IllegalArgumentException(ERROR_DUPLICATE_NAME);
+        }
+    }
+
+    private boolean isValidInputTryNumber(String tryCount) {
+        try {
+            return true;
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return false;
         }
     }
 }
