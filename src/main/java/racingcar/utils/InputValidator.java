@@ -9,8 +9,6 @@ import java.util.stream.Collectors;
 
 public class InputValidator {
 
-    private static final String REGEX_FOR_NAME_LIST = "^[a-zA-z,]+";
-    private static final String REGEX_FOR_COUNT = "^[0-9]+";
     private static final Pattern patternForName = Pattern.compile(REGEX_FOR_NAME_LIST);
     private static final Pattern patternForCount = Pattern.compile(REGEX_FOR_COUNT);
 
@@ -25,7 +23,6 @@ public class InputValidator {
         }
 
         List<String> names = parsingNameList(input);
-
         if (isValidLengthAndNoOverlap(names)) {
             return names;
         }

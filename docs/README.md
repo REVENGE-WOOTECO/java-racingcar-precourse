@@ -1,22 +1,17 @@
 # 미션 - 자동차 경주 게임
 
----
+## 🔍 구성
 
-## 🔍 구현 방법
-
----
-
-### MVC Model
 - Model : Car
-- View : InputView(입력 담당), PrintView(출력 담당)
+- View : InputView(입력 담당)
 - Controller : CarController(Car 생성 및 Car 메서드 활용)
-- Utils : InputView 검증 
+- Utils 
+    - InputValidator : Input 검증
+    - Constant : 상수 Group 
     
 <br>
 
 ## 🔧 구현 기능
-
----
 
 ### 기능 명세
 - [X] 자동차의 이름을 쉼표(,) 기준으로 구분해서 받는다.
@@ -32,6 +27,9 @@
 - 예외 발생 시 `IllegalArgumentException`을 발생시키고, 에러 메시지를 출력 후 그 부분부터 다시 입력받는다.
 - 예외에 알맞은 문구를 출력한다.
 
+<br>
+
+### 예외 처리 check list
 
 - [X] 이름이 쉼표로 구분되는지 확인
 - [X] 이름 입력 사이사이에 공백이 있는지 확인
