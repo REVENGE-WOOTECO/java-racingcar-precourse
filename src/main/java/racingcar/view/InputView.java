@@ -10,15 +10,15 @@ import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {
     private final static String REQUEST_INPUT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
-    private final static String REQUEST_INPUT_TRY_NUMBER = "시도할 회수는 몇회인가요?";
+    private final static String REQUEST_INPUT_TRY_COUNT = "시도할 회수는 몇회인가요?";
     private final static String COMMA_DELIMITER = ",";
 
     private final static String ERROR_WHITE_SPACE_NAME = "[ERROR] 공백인 이름은 입력할 수 없습니다. 다시 입력해주세요.";
     private final static String ERROR_NAME_LENGTH = "[ERROR] 길이가 5 초과인 이름은 입력할 수 없습니다. 다시 입력해주세요.";
     private final static String ERROR_DUPLICATE_NAME = "[ERROR] 동일한 이름은 입력할 수 없습니다. 다시 입력해주세요.";
-    private final static String ERROR_TRY_NUMBER_LETTER = "[ERROR] 시도 횟수는 숫자만 입력할 수 있습니다. 다시 입력해주세요.";
-    private final static String ERROR_TRY_NUMBER_RANGE = "[ERROR] 시도 횟수는 1이상의 숫자만 입력할 수 있습니다. 다시 입력해주세요.";
-    
+    private final static String ERROR_TRY_COUNT_LETTER = "[ERROR] 시도 횟수는 숫자만 입력할 수 있습니다. 다시 입력해주세요.";
+    private final static String ERROR_TRY_COUNT_RANGE = "[ERROR] 시도 횟수는 1이상의 숫자만 입력할 수 있습니다. 다시 입력해주세요.";
+
     public List<String> inputCarNames() {
         System.out.println(REQUEST_INPUT_CAR_NAMES);
         List<String> carNames = splitAndTrimInputCarNames();
@@ -28,8 +28,8 @@ public class InputView {
         return carNames;
     }
 
-    public int inputTryNumber() {
-        System.out.println(REQUEST_INPUT_TRY_NUMBER);
+    public int inputTryCount() {
+        System.out.println(REQUEST_INPUT_TRY_COUNT);
         String tryCount = Console.readLine();
         while (!isValidInputTryNumber(tryCount)) {
             tryCount = Console.readLine();
@@ -88,13 +88,13 @@ public class InputView {
 
     private void validateDigit(String tryCount) {
         if (tryCount.chars().anyMatch(Character::isLetter)) {
-            throw new IllegalArgumentException(ERROR_TRY_NUMBER_LETTER);
+            throw new IllegalArgumentException(ERROR_TRY_COUNT_LETTER);
         }
     }
 
     private void validateCountRange(String tryCount) {
         if (Integer.parseInt(tryCount) < 1) {
-            throw new IllegalArgumentException(ERROR_TRY_NUMBER_RANGE);
+            throw new IllegalArgumentException(ERROR_TRY_COUNT_RANGE);
         }
     }
 }
