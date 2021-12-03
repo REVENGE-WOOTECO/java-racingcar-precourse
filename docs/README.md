@@ -42,6 +42,5 @@
 <br>
 
 ### 추가 처리
-- [ ] 매직 넘버, SystemMessage 처리한다.
+- [X] 매직 넘버, SystemMessage 처리한다.
 - [X] public method는 Unit Test로 검증하도록 시도해본다.
-- [ ] maxNumber 갱신 부분 -> 종료 후에 한꺼번에 처리하도록 메서드로 분리시키기 

@@ -1,5 +1,7 @@
 package racingcar.utils;
 
+import static racingcar.utils.Constant.*;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -21,6 +23,10 @@ public class InputValidator {
         if (isValidRegexName(input)) {
             return null;
         }
+
+        List<String> names = parsingNameList(input);
+
+
         return isValidLength(input);
     }
 
@@ -74,7 +80,7 @@ public class InputValidator {
     }
 
     private static void validateNameLength(String name) {
-        if (name.length() == 0 || name.length() > 5) {
+        if (name.length() == ZERO_NUMBER || name.length() > MAXIMUM_NAME_LENGTH) {
             throw new IllegalArgumentException("[ERROR] 이름은 1자 이상 5자 이하로 입력하세요.");
         }
     }
@@ -86,7 +92,7 @@ public class InputValidator {
     }
 
     private static List<String> parsingNameList(String input) {
-        return Arrays.stream(input.split(","))
+        return Arrays.stream(input.split(SPLIT_REGEX))
             .collect(Collectors.toList());
     }
 }

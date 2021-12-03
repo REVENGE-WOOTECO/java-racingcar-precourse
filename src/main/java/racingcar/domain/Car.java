@@ -1,17 +1,19 @@
 package racingcar.domain;
 
+import static racingcar.utils.Constant.*;
+
 import java.util.Collections;
 
 public class Car {
     private final String name;
-    private int position = 0;
+    private int position = ZERO_NUMBER;
 
     public Car(String name) {
         this.name = name;
     }
 
     public int decideMoving(int randomNumber) {
-        if (randomNumber >= 4) {
+        if (randomNumber >= MOVING_LOWER_LIMIT) {
             position++;
         }
         return position;
@@ -30,7 +32,7 @@ public class Car {
     }
 
     private String printBar() {
-        return String.join("", Collections.nCopies(this.position, "-"));
+        return String.join("", Collections.nCopies(this.position, BAR));
     }
 
 }
