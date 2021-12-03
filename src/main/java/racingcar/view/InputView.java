@@ -15,6 +15,7 @@ public class InputView {
         System.out.println(REQUEST_INPUT_CAR_NAMES);
         String inputCarNames = Console.readLine();
         return Arrays.stream(inputCarNames.split(COMMA_DELIMITER))
+            .map(String::trim)
             .collect(Collectors.toList());
     }
 }
