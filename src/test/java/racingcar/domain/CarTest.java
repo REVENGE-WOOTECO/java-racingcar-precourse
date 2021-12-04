@@ -20,7 +20,6 @@ class CarTest {
             () -> {
                 //when
                 car.move();
-
                 //then
                 assertThat(car.getPosition()).isEqualTo(1);
             },
@@ -46,6 +45,28 @@ class CarTest {
             },
             STOP
         );
+    }
+
+    @Test
+    @DisplayName("최대 거리 자동차가 맞는 지")
+    void CarisMaxPosition() {
+        // given
+        Car car = new Car("pobi");
+        int maxPosition = 2;
+
+        assertRandomNumberInRangeTest(
+            () -> {
+                //when
+                car.move();
+                car.move();
+
+                //then
+                assertThat(car.isMaxPosition(maxPosition)).isEqualTo(true);
+            },
+            MOVING_FORWARD
+        );
+
+        // then
     }
 
 }
