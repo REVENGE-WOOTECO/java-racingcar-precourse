@@ -11,21 +11,16 @@ public class Application {
         InputView inputView = new InputView();
         Cars cars = Cars.from(inputView.inputCarNames());
         int tryCount = inputView.inputTryCount();
-        moveAndPrintEachResult(cars, tryCount);
-        printWinnerNames(cars);
+        startGame(cars, tryCount);
     }
 
-    private static void moveAndPrintEachResult(Cars cars, int tryCount) {
+    private static void startGame(Cars cars, int tryCount) {
         OutputView.printExecutionResultHeader();
         for (int i = 0; i < tryCount; i++) {
             cars.move();
             OutputView.printEachGameState(cars.toCarDtos());
         }
-    }
-
-    private static void printWinnerNames(Cars cars) {
         List<String> winnerCarNames = cars.findWinnerCarNames();
         OutputView.printWinnerCarNames(winnerCarNames);
     }
-
 }
