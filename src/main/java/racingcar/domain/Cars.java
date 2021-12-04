@@ -15,4 +15,8 @@ public class Cars {
         return new Cars(cars);
     }
 
+    public void move() {
+        cars.forEach(Car::move);
+    }
+    
 }
