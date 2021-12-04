@@ -18,12 +18,14 @@ public class OutputView {
         System.out.println(EXECUTION_RESULT_HEADER);
     }
 
-    public static void printGameState(List<CarDto> cars) {
-        for (CarDto car : cars) {
-            String result = car.getName() + COLON + makeDash(car.getPosition());
-            System.out.println(result);
-        }
+    public static void printEachGameState(List<CarDto> cars) {
+        cars.forEach(OutputView::printGameState);
         System.out.println();
+    }
+
+    private static void printGameState(CarDto car) {
+        String result = car.getName() + COLON + makeDash(car.getPosition());
+        System.out.println(result);
     }
 
     private static String makeDash(int position) {
