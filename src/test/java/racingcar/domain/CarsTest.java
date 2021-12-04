@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
@@ -21,7 +22,7 @@ class CarsTest {
 
     @Test
     @DisplayName("Cars가 가지는 값이 불변인지 테스트")
-    void isCarsImmutables() {
+    void isCarsImmutable() {
         // given
         InputView inputView = new InputView();
         command("pobi,min");
@@ -44,7 +45,6 @@ class CarsTest {
         List<String> carNames = inputView.inputCarNames();
         Cars cars = Cars.from(carNames);
 
-        // when
         assertRandomNumberInRangeTest(
             () -> {
                 //when
@@ -114,7 +114,6 @@ class CarsTest {
         List<String> carNames = inputView.inputCarNames();
         Cars cars = Cars.from(carNames);
 
-        // when
         assertRandomNumberInRangeTest(
             () -> {
                 //when
@@ -126,8 +125,53 @@ class CarsTest {
             },
             MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
         );
+    }
 
-        // then
+    @Test
+    @DisplayName("자동차들 중 우승자가 한명일 때")
+    void isFindWinnerCarName() {
+        // given
+        InputView inputView = new InputView();
+        command("pobi,min,hwan");
+        List<String> carNames = inputView.inputCarNames();
+        Cars cars = Cars.from(carNames);
+
+        // when
+        assertRandomNumberInRangeTest(
+            () -> {
+                //when
+                cars.move();
+
+                //then
+                assertThat(cars.findWinnerCarNames().size()).isEqualTo(1);
+                assertThat(cars.findWinnerCarNames()).contains("pobi");
+            },
+            MOVING_FORWARD, STOP, STOP
+        );
+    }
+
+    @Test
+    @DisplayName("자동차들 중 우승자가 여러 명 일 때")
+    void isFindWinnerCarNames() {
+        // given
+        InputView inputView = new InputView();
+        command("pobi,min,hwan");
+        List<String> carNames = inputView.inputCarNames();
+        Cars cars = Cars.from(carNames);
+
+        // when
+        assertRandomNumberInRangeTest(
+            () -> {
+                //when
+                cars.move();
+
+                //then
+                assertThat(cars.findWinnerCarNames().size()).isEqualTo(2);
+                assertThat(cars.findWinnerCarNames()).contains("pobi");
+                assertThat(cars.findWinnerCarNames()).contains("min");
+            },
+            MOVING_FORWARD, MOVING_FORWARD, STOP
+        );
     }
 
 }

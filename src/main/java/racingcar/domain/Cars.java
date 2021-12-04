@@ -13,12 +13,22 @@ public class Cars {
     }
 
     public static Cars from(List<String> carNames) {
-        List<Car> cars = carNames.stream().map(Car::new).collect(Collectors.toList());
+        List<Car> cars = carNames.stream()
+            .map(Car::new)
+            .collect(Collectors.toList());
         return new Cars(cars);
     }
 
     public void move() {
         cars.forEach(Car::move);
+    }
+
+    public List<String> findWinnerCarNames() {
+        int maxPosition = findMaxPosition();
+        return cars.stream()
+            .filter(car -> car.isMaxPosition(maxPosition))
+            .map(Car::getName)
+            .collect(Collectors.toList());
     }
 
     private int findMaxPosition() {
