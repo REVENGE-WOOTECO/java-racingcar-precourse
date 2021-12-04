@@ -12,7 +12,7 @@ class CarTest {
 
     @Test
     @DisplayName("랜덤한 값이 4이상일 경우 전진")
-    void CarMoveTest() {
+    void isCarMove() {
         //given
         Car car = new Car("pobi");
 
@@ -29,12 +29,10 @@ class CarTest {
 
     @Test
     @DisplayName("랜덤한 값이 4미만일 경우 변화없음")
-    void CarStopTest() {
+    void isCarStop() {
         //given
         Car car = new Car("pobi");
 
-        //when
-        //then
         assertRandomNumberInRangeTest(
             () -> {
                 //when
@@ -49,7 +47,7 @@ class CarTest {
 
     @Test
     @DisplayName("최대 거리 자동차가 맞는 지")
-    void CarisMaxPosition() {
+    void isCarMaxPosition() {
         // given
         Car car = new Car("pobi");
         int maxPosition = 2;
@@ -66,7 +64,6 @@ class CarTest {
             MOVING_FORWARD
         );
 
-        // then
     }
 
 }
