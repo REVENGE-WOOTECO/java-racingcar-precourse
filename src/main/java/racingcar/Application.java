@@ -9,15 +9,23 @@ import racingcar.view.OutputView;
 public class Application {
     public static void main(String[] args) {
         InputView inputView = new InputView();
-        List<String> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames);
+        Cars cars = Cars.from(inputView.inputCarNames());
         int tryCount = inputView.inputTryCount();
+        moveAndPrintEachResult(cars, tryCount);
+        printWinnerNames(cars);
+    }
+
+    private static void moveAndPrintEachResult(Cars cars, int tryCount) {
         OutputView.printExecutionResultHeader();
         for (int i = 0; i < tryCount; i++) {
             cars.move();
             OutputView.printGameState(cars.toCarDto());
         }
+    }
+
+    private static void printWinnerNames(Cars cars) {
         List<String> winnerCarNames = cars.findWinnerCarNames();
         OutputView.printWinnerCarNames(winnerCarNames);
     }
+
 }
