@@ -105,4 +105,29 @@ class CarsTest {
 
     }
 
+    @Test
+    @DisplayName("자동차들 중 최대 거리가 잘 구해지는 지")
+    void isCarsMaxPosition() {
+        // given
+        InputView inputView = new InputView();
+        command("pobi,min");
+        List<String> carNames = inputView.inputCarNames();
+        Cars cars = Cars.from(carNames);
+
+        // when
+        assertRandomNumberInRangeTest(
+            () -> {
+                //when
+                cars.move();
+                cars.move();
+
+                //then
+                //assertThat(cars.calculateMaxPosition()).isEqualTo(2);
+            },
+            MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
+        );
+
+        // then
+    }
+
 }
