@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import racingcar.dto.CarDto;
 
 public class Cars {
-    private final static String ERROR_DUPLICATE_NAME = "[ERROR] 동일한 이름은 입력할 수 없습니다. 다시 입력해주세요.";
+    private static final String ERROR_DUPLICATE_NAME = "[ERROR] 동일한 이름은 입력할 수 없습니다. 다시 입력해주세요.";
     private static final String ERROR_NOT_FIND_MAX_POSITION = "[ERROR] 최대 거리를 찾을 수 없습니다.";
 
     private final List<Car> cars;
