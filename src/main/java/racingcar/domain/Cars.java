@@ -51,7 +51,7 @@ public class Cars {
             .orElseThrow(() -> new IllegalArgumentException(ERROR_NOT_FIND_MAX_POSITION));
     }
 
-    public List<CarDto> toCarDto() {
+    public List<CarDto> toCarDtos() {
         return cars.stream()
             .map(CarDto::from)
             .collect(Collectors.toList());

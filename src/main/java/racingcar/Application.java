@@ -19,7 +19,7 @@ public class Application {
         OutputView.printExecutionResultHeader();
         for (int i = 0; i < tryCount; i++) {
             cars.move();
-            OutputView.printEachGameState(cars.toCarDto());
+            OutputView.printEachGameState(cars.toCarDtos());
         }
     }
 
