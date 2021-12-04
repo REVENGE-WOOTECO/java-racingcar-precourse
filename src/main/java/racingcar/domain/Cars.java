@@ -3,6 +3,8 @@ package racingcar.domain;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import racingcar.dto.CarDto;
+
 public class Cars {
     private static final String ERROR_NOT_FIND_MAX_POSITION = "[ERROR] 최대 거리를 찾을 수 없습니다.";
 
@@ -36,6 +38,12 @@ public class Cars {
             .map(Car::getPosition)
             .max(Integer::compare)
             .orElseThrow(() -> new IllegalArgumentException(ERROR_NOT_FIND_MAX_POSITION));
+    }
+
+    public List<CarDto> toCarDto() {
+        return cars.stream()
+            .map(CarDto::from)
+            .collect(Collectors.toList());
     }
 
 }
