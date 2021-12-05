@@ -5,6 +5,7 @@ import static racingcar.utils.Constant.*;
 import java.util.Collections;
 
 public class Car {
+
     private final String name;
     private int position = ZERO_NUMBER;
 

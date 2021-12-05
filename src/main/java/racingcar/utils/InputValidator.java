@@ -12,10 +12,6 @@ public class InputValidator {
     private static final Pattern patternForName = Pattern.compile(REGEX_FOR_NAME_LIST);
     private static final Pattern patternForCount = Pattern.compile(REGEX_FOR_COUNT);
 
-    /**
-     * 1. 알파벳, 쉼표 외 입력 여부 검증
-     * 2. parsing 후 name 길이 및 중복 검증
-     */
     public static List<String> validateNameList(String input) {
 
         if (isValidRegexName(input)) {
@@ -29,9 +25,6 @@ public class InputValidator {
         return null;
     }
 
-    /**
-     * count 유효 여부 검증
-     */
     public static boolean validateCount(String input) {
 
         try {
