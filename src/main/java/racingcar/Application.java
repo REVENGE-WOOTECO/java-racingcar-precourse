@@ -10,7 +10,7 @@ public class Application {
 
     public static void main(String[] args) {
         List<String> carNames = InputView.requestCarInput();
-        CarController carController = CarController.of(carNames, new ArrayList<>());
+        CarController carController = CarController.of(carNames);
 
         int repeatCount = InputView.requestRepeatCount();
         carController.gameStart(repeatCount);

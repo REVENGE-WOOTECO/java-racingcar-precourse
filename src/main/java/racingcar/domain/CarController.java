@@ -10,8 +10,8 @@ public class CarController {
         this.carGroups = carGroups;
     }
 
-    public static CarController of(List<String> carNames, List<Car> cars) {
-        return new CarController(CarGroups.of(carNames, cars));
+    public static CarController of(List<String> carNames) {
+        return new CarController(CarGroups.of(carNames));
     }
 
     public void gameStart(int repeatCount) {

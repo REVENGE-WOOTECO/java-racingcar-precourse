@@ -15,10 +15,10 @@ public class CarGroups {
         this.cars = cars;
     }
 
-    public static CarGroups of(List<String> carNames, List<Car> cars) {
-        for (String carName : carNames) {
-            cars.add(new Car(carName));
-        }
+    public static CarGroups of(List<String> carNames) {
+        List<Car> cars = carNames.stream()
+            .map(Car::new)
+            .collect(toList());
         return new CarGroups(cars);
     }
 
