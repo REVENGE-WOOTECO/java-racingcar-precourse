@@ -42,3 +42,12 @@
 ### 추가 처리
 - [X] 매직 넘버, SystemMessage 처리한다.
 - [X] public method는 Unit Test로 검증하도록 시도해본다.
+
+
+### Feedback
+- [ ] 필드 선언 컨벤션 통일
+- [ ] car들을 저장하는 리스트에 대한 일급 컬렉션 적용 & 생성자를 통한 주입 적용
+- [ ] 정적 팩터리 메서드 컨벤션 적용
+- [ ] car.decideMoving : 조회(쿼리) & 변경(command)역할 동시에 수행 중 -> 한 가지 역할만 하도록 메서드 분리
+- [ ] private method 선언 & 구현 순서 변경
+- [ ] Validator 예외 처리 구조 변경
