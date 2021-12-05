@@ -20,6 +20,14 @@ public class Car {
         showStatus();
     }
 
+    public void showStatus() {
+        System.out.println(name + " : " + printBar());
+    }
+
+    private String printBar() {
+        return String.join("", Collections.nCopies(this.position, BAR));
+    }
+
     public String getName() {
         return name;
     }
@@ -31,13 +39,4 @@ public class Car {
     public boolean isYourPosition(int maxNumber) {
         return maxNumber == position;
     }
-
-    public void showStatus() {
-        System.out.println(name + " : " + printBar());
-    }
-
-    private String printBar() {
-        return String.join("", Collections.nCopies(this.position, BAR));
-    }
-
 }
