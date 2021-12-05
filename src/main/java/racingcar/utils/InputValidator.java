@@ -13,11 +13,9 @@ public class InputValidator {
     private static final Pattern patternForCount = Pattern.compile(REGEX_FOR_COUNT);
 
     public static List<String> validateNameList(String input) {
-
         if (isValidRegexName(input)) {
             return null;
         }
-
         List<String> names = parsingNameList(input);
         if (isValidLengthAndNoOverlap(names)) {
             return names;
@@ -26,7 +24,6 @@ public class InputValidator {
     }
 
     public static boolean validateCount(String input) {
-
         try {
             isValidRegexCount(input);
         } catch (IllegalArgumentException e) {

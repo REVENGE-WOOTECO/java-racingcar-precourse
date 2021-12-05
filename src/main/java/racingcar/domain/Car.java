@@ -13,15 +13,19 @@ public class Car {
         this.name = name;
     }
 
-    public int decideMoving(int randomNumber) {
+    public void decideMoving(int randomNumber) {
         if (randomNumber >= MOVING_LOWER_LIMIT) {
             position++;
         }
-        return position;
+        showStatus();
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     public boolean isYourPosition(int maxNumber) {

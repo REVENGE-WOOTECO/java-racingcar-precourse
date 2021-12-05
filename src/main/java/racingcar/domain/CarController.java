@@ -1,51 +1,33 @@
 package racingcar.domain;
 
-import static java.util.stream.Collectors.*;
-import static racingcar.utils.Constant.*;
-
-import java.util.ArrayList;
 import java.util.List;
-
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class CarController {
 
-    private static final List<Car> carList = new ArrayList<>();
-    private static int maxNumber = ZERO_NUMBER;
+    private final CarGroups carGroups;
 
-    public static CarController makeCarList(List<String> cars) {
+    private CarController(CarGroups carGroups) {
+        this.carGroups = carGroups;
+    }
 
-        for (String carName : cars) {
-            carList.add(new Car(carName));
-        }
-        return new CarController();
+    public static CarController of(List<String> carNames, List<Car> cars) {
+        return new CarController(CarGroups.of(carNames, cars));
     }
 
     public void gameStart(int repeatCount) {
-
         System.out.println("\n실행 결과");
+        repeatGame(repeatCount);
+        printWinner();
+    }
 
+    private void repeatGame(int repeatCount) {
         for (int i = 0; i < repeatCount; i++) {
-            executeEachCar();
+            carGroups.executeMovingOrNot();
             System.out.println();
         }
-        showWinner();
     }
 
-    private void showWinner() {
-
-        String result = carList.stream()
-            .filter(car -> car.isYourPosition(maxNumber))
-            .map(Car::getName)
-            .collect(joining(JOIN_DELIMITER));
-
-        System.out.print("최종 우승자 : " + result);
-    }
-
-    private void executeEachCar() {
-        for (Car car : carList) {
-            maxNumber = Math.max(maxNumber, car.decideMoving(Randoms.pickNumberInRange(ZERO_NUMBER, MAXIMUM_NUMBER)));
-            car.showStatus();
-        }
+    private void printWinner() {
+        System.out.print("최종 우승자 : " + carGroups.showWinner());
     }
 }
