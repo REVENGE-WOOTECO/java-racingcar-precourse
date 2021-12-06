@@ -9,12 +9,12 @@ import racingcar.constant.ConstMessage;
 public class RacingGame {
 	List<Car> carList = new LinkedList<>();
 
-	public void game(String[] inputCarName, int inputPlayTime) {
+	public void playGame(String[] inputCarName, int inputPlayTime) {
 		getCarList(inputCarName);
 
 		for (int i = 0; i < inputPlayTime; i++) {
 			for (Car car : carList) {
-				car.play();
+				car.playOnce();
 			}
 			System.out.println();
 		}

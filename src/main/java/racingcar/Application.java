@@ -9,6 +9,6 @@ public class Application {
 
         System.out.println("실행결과");
         RacingGame racingGame = new RacingGame();
-        racingGame.game(inputCarName, inputPlayTime);
+        racingGame.playGame(inputCarName, inputPlayTime);
     }
 }

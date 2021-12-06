@@ -21,7 +21,7 @@ public class Car {
 		return position;
 	}
 
-	public void play() {
+	public void playOnce() {
 		int randomNumber = Randoms.pickNumberInRange(ConstNumber.RANDOM_NUMBER_MIN, ConstNumber.RANDOM_NUMBER_MAX);
 		if (randomNumber >= ConstNumber.MOVE_CONDITION_RANDOM_NUMBER) {
 			move();
