@@ -14,7 +14,7 @@ public class UserInput {
         this.validator = validator;
     }
 
-    public String[] carsInput() {
+    public String[] inputCars() {
         String[] carNames = stream(readLine().split(COMMA))
                 .map(String::trim)
                 .toArray(String[]::new);
@@ -22,7 +22,7 @@ public class UserInput {
         return carNames;
     }
 
-    public int tyrCountInput() {
+    public int inputTryCount() {
         String numberString = readLine();
         validator.validateIsNumber(numberString);
         return parseInt(numberString);
