@@ -28,7 +28,7 @@ public class RoundHistory {
         return sb.toString();
     }
 
-    public static String getPositionBar(Car car) {
+    private static String getPositionBar(Car car) {
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i <= car.getPosition(); i++) {
             sb.append(POSITION_BAR);
