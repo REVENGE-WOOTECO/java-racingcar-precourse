@@ -23,7 +23,7 @@ public class InputUser {
 		return inputCarNames;
 	}
 
-	public String inputPlayTimes() {
+	public int inputPlayTimes() {
 		String inputPlayTimes;
 
 		while (true) {
@@ -37,6 +37,6 @@ public class InputUser {
 			}
 		}
 
-		return inputPlayTimes;
+		return Integer.parseInt(inputPlayTimes);
 	}
 }
