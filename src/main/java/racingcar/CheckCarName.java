@@ -13,6 +13,7 @@ public class CheckCarName {
 		checkCarNameEmpty(carNameArray);
 		checkCarNameBlank(carNameArray);
 		checkCarNameDuplicate(carNameArray);
+		checkCarNameLastComma(carNameArray);
 	}
 
 	public void checkCarNameLength(List<String> carNameArray){
@@ -36,6 +37,12 @@ public class CheckCarName {
 			if (s.equals(" ")) {
 				throw new IllegalArgumentException();
 			}
+		}
+	}
+
+	public void checkCarNameLastComma(List<String> carNameArray){
+		if (carNameArray.get(carNameArray.size()-1).equals(",")) {
+			throw new IllegalArgumentException();
 		}
 	}
 
