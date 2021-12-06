@@ -22,7 +22,7 @@ public class UserInput {
         return carNames;
     }
 
-    public int stepInput() {
+    public int tyrCountInput() {
         String numberString = readLine();
         validator.validateIsNumber(numberString);
         return parseInt(numberString);
