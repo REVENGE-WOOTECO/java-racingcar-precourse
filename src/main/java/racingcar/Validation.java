@@ -8,4 +8,7 @@ public class Validation {
 		List<String> carNameArray = Arrays.asList(inputCarName.split(","));
 		new CheckCarName(carNameArray);
 	}
+	public void validatePlayTime(int playTime) {
+		new CheckPlayTime(playTime);
+	}
 }
