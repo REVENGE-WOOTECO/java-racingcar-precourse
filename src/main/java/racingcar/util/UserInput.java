@@ -1,22 +1,30 @@
 package racingcar.util;
 
-import camp.nextstep.edu.missionutils.Console;
-
-import static camp.nextstep.edu.missionutils.Console.*;
-import static java.lang.Integer.*;
+import static camp.nextstep.edu.missionutils.Console.readLine;
+import static java.lang.Integer.parseInt;
 import static java.util.Arrays.stream;
 
 public class UserInput {
 
     private static final String COMMA = ",";
 
+    private final Validation validation;
+
+    public UserInput(Validation validation) {
+        this.validation = validation;
+    }
+
     public String[] carsInput() {
-        return stream(readLine().split(COMMA))
+        String[] carNames = stream(readLine().split(COMMA))
                 .map(String::trim)
                 .toArray(String[]::new);
+        validation.validateCarNames(carNames);
+        return carNames;
     }
 
     public int stepInput() {
-        return parseInt(readLine());
+        String numberString = readLine();
+        validation.validateIsNumber(numberString);
+        return parseInt(numberString);
     }
 }
