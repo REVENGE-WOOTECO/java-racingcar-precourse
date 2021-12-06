@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
+import static racingcar.game.GameSetting.*;
 
 public class Game {
 
@@ -55,8 +56,8 @@ public class Game {
 
     private void moveCars(GameInfo gameInfo) {
         for (Car car : gameInfo.getCars()) {
-            int carPickNumber = pickNumberInRange(0, 9);
-            if (carPickNumber >= 4) {
+            int carPickNumber = pickNumberInRange(RANGE_START.value(), RANGE_END.value());
+            if (carPickNumber >= MIN_RANDOM.value()) {
                 car.forward();
             }
         }
