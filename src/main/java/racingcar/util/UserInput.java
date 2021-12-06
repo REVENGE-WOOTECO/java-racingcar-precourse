@@ -6,8 +6,7 @@ import static java.util.Arrays.stream;
 
 public class UserInput {
 
-    private static final String COMMA = ",";
-
+    private static final String DELIMITER = ",";
     private final Validator validator;
 
     public UserInput(Validator validator) {
@@ -15,7 +14,7 @@ public class UserInput {
     }
 
     public String[] inputCars() {
-        String[] carNames = stream(readLine().split(COMMA))
+        String[] carNames = stream(readLine().split(DELIMITER))
                 .map(String::trim)
                 .toArray(String[]::new);
         validator.validateCarNames(carNames);
