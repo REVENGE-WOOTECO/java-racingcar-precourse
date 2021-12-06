@@ -5,7 +5,6 @@ public class ConstMessage {
 	public final static String REQUEST_INPUT_PLAY_TIME = "시도할 회수는 몇회인가요?";
 	public final static String FINAL_WINNER = "최종 우승자: ";
 
-
 	public final static String ERROR_MESSAGE_WRONG_CAR_NAME = "[ERROR] 잘못된 자동차 이름입니다.";
 	public final static String ERROR_MESSAGE_WRONG_PLAY_TIME = "[ERROR] 1 이상의 숫자만 입력 가능합니다.";
 
