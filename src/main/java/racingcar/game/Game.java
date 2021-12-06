@@ -1,11 +1,12 @@
 package racingcar.game;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.Car;
 import racingcar.util.UserInput;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
 
 public class Game {
 
@@ -54,7 +55,7 @@ public class Game {
 
     private void moveCars(GameInfo gameInfo) {
         for (Car car : gameInfo.getCars()) {
-            int carPickNumber = Randoms.pickNumberInRange(0, 9);
+            int carPickNumber = pickNumberInRange(0, 9);
             if (carPickNumber >= 4) {
                 car.forward();
             }
