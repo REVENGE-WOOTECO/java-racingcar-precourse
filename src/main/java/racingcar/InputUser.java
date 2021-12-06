@@ -10,7 +10,7 @@ public class InputUser {
 		String inputCarNames;
 
 		while (true) {
-			System.out.println(ConstMessage.REQUEST_INPUT_CAR_NAME);
+			System.out.println(ConstMessage.REQUEST_MESSAGE_INPUT_CAR_NAME);
 			inputCarNames = Console.readLine();
 			try {
 				validation.validateCarName(inputCarNames);
@@ -27,7 +27,7 @@ public class InputUser {
 		String inputPlayTimes;
 
 		while (true) {
-			System.out.println(ConstMessage.REQUEST_INPUT_PLAY_TIME);
+			System.out.println(ConstMessage.REQUEST_MESSAGE_INPUT_PLAY_TIME);
 			inputPlayTimes = Console.readLine();
 			try {
 				validation.validatePlayTime(Integer.parseInt(inputPlayTimes));
