@@ -12,6 +12,7 @@ import static racingcar.game.GameSetting.*;
 
 public class Game {
 
+    private static final String DELIMITER = ", ";
     private final UserInput userInput;
 
     public Game(UserInput userInput) {
@@ -22,6 +23,7 @@ public class Game {
         GameInfo gameInfo = initGame();
         executeAsTryCount(gameInfo);
         List<String> winnerNames = createWinnerNames(gameInfo);
+        printWinnerNames(winnerNames);
     }
 
     private GameInfo initGame() {
@@ -82,6 +84,11 @@ public class Game {
             winnerNames.add(car.getName());
         }
         return winnerNames;
+    }
+
+    private void printWinnerNames(List<String> winnerNames) {
+        String joinWinnerNames = String.join(DELIMITER, winnerNames);
+        System.out.println("최종 우승자 : " + joinWinnerNames);
     }
 }
 
