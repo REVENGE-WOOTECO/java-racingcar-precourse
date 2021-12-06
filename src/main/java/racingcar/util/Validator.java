@@ -10,7 +10,7 @@ public class Validator {
 
     private static final int NAME_MAX_LENGTH = 5;
     private static final String PATTERN_REGEX = "-?\\d+";
-    private static final String PREFIX = "[ERROR]";
+    private static final String PREFIX = "[ERROR] ";
     private static final Pattern PATTERN = Pattern.compile(PATTERN_REGEX);
 
     public void validateCarNames(String[] carNames) {
