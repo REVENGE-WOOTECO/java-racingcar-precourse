@@ -15,6 +15,7 @@ public class RacingGame {
 			for (Car car : carList) {
 				car.play();
 			}
+			System.out.println();
 		}
 	}
 }

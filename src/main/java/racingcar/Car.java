@@ -18,10 +18,19 @@ public class Car {
 		if (randomNumber >= ConstNumber.MOVE_CONDITION_RANDOM_NUMBER) {
 			move();
 		}
+		printPosition();
 	}
 
 	public void move() {
 		position++;
+	}
+
+	public void printPosition() {
+		System.out.print(name + " : ");
+		for (int i = 0; i < position; i++) {
+			System.out.print("-");
+		}
+		System.out.println();
 	}
 
 }
