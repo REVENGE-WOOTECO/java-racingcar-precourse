@@ -48,6 +48,7 @@ public class Game {
     private void executeAsTryCount(GameInfo gameInfo) {
         for (int i = 0; i < gameInfo.getTryCount(); i++) {
             moveCars(gameInfo);
+            printCarsPosition(gameInfo);
         }
     }
 
@@ -58,6 +59,10 @@ public class Game {
                 car.forward();
             }
         }
+    }
+
+    private void printCarsPosition(GameInfo gameInfo) {
+        gameInfo.printCarsPosition();
     }
 }
 
