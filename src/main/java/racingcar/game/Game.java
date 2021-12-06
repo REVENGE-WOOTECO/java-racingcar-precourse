@@ -17,6 +17,7 @@ public class Game {
 
     public void play() {
         GameInfo gameInfo = initGame();
+        executeAsTryCount(gameInfo);
     }
 
     private GameInfo initGame() {
@@ -42,6 +43,21 @@ public class Game {
             cars.add(new Car(carName));
         }
         return cars;
+    }
+
+    private void executeAsTryCount(GameInfo gameInfo) {
+        for (int i = 0; i < gameInfo.getTryCount(); i++) {
+            moveCars(gameInfo);
+        }
+    }
+
+    private void moveCars(GameInfo gameInfo) {
+        for (Car car : gameInfo.getCars()) {
+            int carPickNumber = Randoms.pickNumberInRange(0, 9);
+            if (carPickNumber >= 4) {
+                car.forward();
+            }
+        }
     }
 }
 
