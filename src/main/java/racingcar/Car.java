@@ -13,6 +13,14 @@ public class Car {
 		this.name = name;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
 	public void play() {
 		int randomNumber = Randoms.pickNumberInRange(ConstNumber.RANDOM_NUMBER_MIN, ConstNumber.RANDOM_NUMBER_MAX);
 		if (randomNumber >= ConstNumber.MOVE_CONDITION_RANDOM_NUMBER) {
