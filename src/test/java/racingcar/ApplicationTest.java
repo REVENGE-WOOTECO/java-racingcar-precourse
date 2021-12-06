@@ -34,6 +34,26 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    void 빈칸이_포함된_시도_횟수에_대한_예외_처리() {
+        assertSimpleTest(
+            () -> {
+                runException("pobi,java", "1 0");
+                assertThat(output()).contains(ERROR_MESSAGE);
+            }
+        );
+    }
+
+    @Test
+    void 숫자가_아닌_시도_횟수에_대한_예외_처리() {
+        assertSimpleTest(
+            () -> {
+                runException("pobi,java", "a");
+                assertThat(output()).contains(ERROR_MESSAGE);
+            }
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
