@@ -4,6 +4,7 @@ import racingcar.Car;
 import racingcar.util.UserInput;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static camp.nextstep.edu.missionutils.Randoms.pickNumberInRange;
@@ -20,6 +21,7 @@ public class Game {
     public void play() {
         GameInfo gameInfo = initGame();
         executeAsTryCount(gameInfo);
+        List<String> winnerNames = createWinnerNames(gameInfo);
     }
 
     private GameInfo initGame() {
@@ -65,6 +67,21 @@ public class Game {
 
     private void printCarsPosition(GameInfo gameInfo) {
         gameInfo.printCarsPosition();
+        System.out.println();
+    }
+
+    private List<String> createWinnerNames(GameInfo gameInfo) {
+        List<Car> cars = gameInfo.getCars();
+        Collections.sort(cars);
+        List<String> winnerNames = new ArrayList<>();
+        int maxPosition = cars.get(0).getPosition();
+        for (Car car : cars) {
+            if (car.getPosition() < maxPosition) {
+                break;
+            }
+            winnerNames.add(car.getName());
+        }
+        return winnerNames;
     }
 }
 
