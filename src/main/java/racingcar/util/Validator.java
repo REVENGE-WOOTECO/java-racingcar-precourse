@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toSet;
 
-public class Validation {
+public class Validator {
 
     private static final int NAME_MAX_LENGTH = 5;
     private static final String PATTERN_REGEX = "-?\\d+";

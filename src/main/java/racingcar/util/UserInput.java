@@ -8,23 +8,23 @@ public class UserInput {
 
     private static final String COMMA = ",";
 
-    private final Validation validation;
+    private final Validator validator;
 
-    public UserInput(Validation validation) {
-        this.validation = validation;
+    public UserInput(Validator validator) {
+        this.validator = validator;
     }
 
     public String[] carsInput() {
         String[] carNames = stream(readLine().split(COMMA))
                 .map(String::trim)
                 .toArray(String[]::new);
-        validation.validateCarNames(carNames);
+        validator.validateCarNames(carNames);
         return carNames;
     }
 
     public int stepInput() {
         String numberString = readLine();
-        validation.validateIsNumber(numberString);
+        validator.validateIsNumber(numberString);
         return parseInt(numberString);
     }
 }
