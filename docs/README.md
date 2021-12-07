@@ -50,10 +50,9 @@
 - [X] 정적 팩터리 메서드 컨벤션 적용
 - [X] car.decideMoving : 조회(쿼리) & 변경(command)역할 동시에 수행 중 -> 한 가지 역할만 하도록 메서드 분리
 - [X] private method 선언 & 구현 순서 변경
-- [ ] Validator 예외 처리 구조 변경
+- [X] Validator 예외 처리 구조 변경
 
 ### 질문
-- private, public method의 위치는 상대적으로 결정하면 되는지? 종류별로 모아야 하나?
+- 클래스 내에서 private, public method의 위치 
 - 정적 팩터리 메서드 네이밍에 대한 질문(of)
-- 여러 user 관련(병렬 처리?)
-- 설계 측면 controller / service 역할
+- 설계 측면에서 controller / service 역할
