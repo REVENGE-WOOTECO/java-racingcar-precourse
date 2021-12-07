@@ -1,0 +1,58 @@
+# 미션 - 자동차 경주 게임
+
+## 🔍 구성
+
+- Model : Car
+- View : InputView(입력 담당)
+- Controller : CarController(Car 생성 및 Car 메서드 활용)
+- Utils 
+    - InputValidator : Input 검증
+    - Constant : 상수 Group 
+    
+<br>
+
+## 🔧 구현 기능
+
+### 기능 명세
+- [X] 자동차의 이름을 쉼표(,) 기준으로 구분해서 받는다.
+- [X] 입력된 자동차의 이름을 기반으로 Car instance를 생성하고, CarController의 List에 저장한다.
+- [X] 시도할 횟수를 입력받는다.
+- [X] CarList를 순환하며, 랜덤 값을 기반으로 Car의 Go/Stop 여부를 판단하고 처리한다.
+- [X] 종료 후 가장 distance가 큰 Car name을 출력한다.
+
+<br>
+
+### 예외 처리
+- 예외 상황 발생 시 에러 문구를 출력한다. 문구는 [ERROR]로 시작되어야 한다.
+- 예외 발생 시 `IllegalArgumentException`을 발생시키고, 에러 메시지를 출력 후 그 부분부터 다시 입력받는다.
+- 예외에 알맞은 문구를 출력한다.
+
+<br>
+
+### 예외 처리 check list
+
+- [X] 이름이 쉼표로 구분되는지 확인
+- [X] 이름 입력 사이사이에 공백이 있는지 확인
+- [X] 이름이 5자 이하인지 확인
+- [X] 시도 횟수가 0 이상인지 확인
+- [X] 중복 이름 확인
+
+<br>
+
+### 추가 처리
+- [X] 매직 넘버, SystemMessage 처리한다.
+- [X] public method는 Unit Test로 검증하도록 시도해본다.
+
+
+### Feedback
+- [X] 필드 선언 컨벤션 통일
+- [X] car들을 저장하는 리스트에 대한 일급 컬렉션 적용 & 생성자를 통한 주입 적용
+- [X] 정적 팩터리 메서드 컨벤션 적용
+- [X] car.decideMoving : 조회(쿼리) & 변경(command)역할 동시에 수행 중 -> 한 가지 역할만 하도록 메서드 분리
+- [X] private method 선언 & 구현 순서 변경
+- [X] Validator 예외 처리 구조 변경
+
+### 질문
+- 클래스 내에서 private, public method의 위치 
+- 정적 팩터리 메서드 네이밍에 대한 질문(of)
+- 설계 측면에서 controller / service 역할
