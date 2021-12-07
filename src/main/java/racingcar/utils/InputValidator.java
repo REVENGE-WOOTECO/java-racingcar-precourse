@@ -73,7 +73,7 @@ public class InputValidator {
     }
 
     private static void validateNameLength(String name) {
-        if (name.length() == ZERO_NUMBER || name.length() > MAXIMUM_NAME_LENGTH) {
+        if (name.isEmpty() || name.length() > MAXIMUM_NAME_LENGTH) {
             throw new IllegalArgumentException("[ERROR] 이름은 1자 이상 5자 이하로 입력하세요.");
         }
     }
