@@ -13,13 +13,13 @@ class InputValidatorTest {
     @ParameterizedTest
     @ValueSource(strings = {"123", "345", "가나다", "abc3", "4fjd", "ab, cd", "Ab cd"})
     void regex_알파벳_아닌_값_검증(String input) {
-        assertThat(InputValidator.validateNameList(input)).isEqualTo(null);
+        assertThat(InputValidator.validateNameList(input).isEmpty()).isEqualTo(true);
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"a,bcdefg,d", ",bcd,def", "afdfdf,asdfasa,bbbbbbb"})
     void length_실패_검증(String input) {
-        assertThat(InputValidator.validateNameList(input)).isEqualTo(null);
+        assertThat(InputValidator.validateNameList(input).isEmpty()).isEqualTo(true);
     }
 
     @ParameterizedTest
@@ -43,7 +43,7 @@ class InputValidatorTest {
     @ParameterizedTest
     @ValueSource(strings = {"lee,lee", "jo,jo", "aaa,aaa"})
     void 중복_이름_실패_검증(String input) {
-        assertThat(InputValidator.validateNameList(input)).isEqualTo(null);
+        assertThat(InputValidator.validateNameList(input).isEmpty()).isEqualTo(true);
     }
 
 }

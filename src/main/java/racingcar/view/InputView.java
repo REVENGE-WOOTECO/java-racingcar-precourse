@@ -13,7 +13,7 @@ public class InputView {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
         do {
             input = Console.readLine();
-        } while ((result = InputValidator.validateNameList(input)) == null);
+        } while ((result = InputValidator.validateNameList(input)).isEmpty());
 
         return result;
     }

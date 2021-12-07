@@ -3,6 +3,7 @@ package racingcar.utils;
 import static racingcar.utils.Constant.*;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -13,24 +14,26 @@ public class InputValidator {
     private static final Pattern patternForCount = Pattern.compile(REGEX_FOR_COUNT);
 
     public static List<String> validateNameList(String input) {
-        if (isValidRegexName(input)) {
-            return null;
+        if (isNotValidRegexName(input)) {
+            return Collections.emptyList();
         }
         List<String> names = parsingNameList(input);
         if (isValidLengthAndNoOverlap(names)) {
             return names;
         }
-        return null;
+        return Collections.emptyList();
     }
 
     public static boolean validateCount(String input) {
         try {
-            isValidRegexCount(input);
+            if (!patternForCount.matcher(input).matches()) {
+                throw new IllegalArgumentException("[ERROR] 0 이상의 숫자만 입력하세요.");
+            }
+            return true;
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             return false;
         }
-        return true;
     }
 
     private static boolean isValidLengthAndNoOverlap(List<String> names) {
@@ -53,13 +56,7 @@ public class InputValidator {
         }
     }
 
-    private static void isValidRegexCount(String input) {
-        if (!patternForCount.matcher(input).matches()) {
-            throw new IllegalArgumentException("[ERROR] 0 이상의 숫자만 입력하세요.");
-        }
-    }
-
-    private static boolean isValidRegexName(String input) {
+    private static boolean isNotValidRegexName(String input) {
         try {
             validateByRegex(input);
         } catch (IllegalArgumentException e) {
