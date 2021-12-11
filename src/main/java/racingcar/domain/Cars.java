@@ -45,7 +45,7 @@ public class Cars {
             .collect(Collectors.toList());
     }
 
-    private int findMaxPosition() {
+    public int findMaxPosition() {
         return cars.stream()
             .map(Car::getPosition)
             .max(Integer::compare)

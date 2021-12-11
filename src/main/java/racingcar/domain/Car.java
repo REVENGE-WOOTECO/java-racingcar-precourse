@@ -31,10 +31,14 @@ public class Car {
     }
 
     public void move() {
-        int randomValue = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
-        if (MOVING_FORWARD <= randomValue) {
+        if (isMovable()) {
             position++;
         }
+    }
+
+    private boolean isMovable() {
+        int randomValue = Randoms.pickNumberInRange(MIN_NUMBER, MAX_NUMBER);
+        return MOVING_FORWARD <= randomValue;
     }
 
     public boolean isMaxPosition(int maxPosition) {
