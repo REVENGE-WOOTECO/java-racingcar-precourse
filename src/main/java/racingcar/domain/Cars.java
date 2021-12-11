@@ -32,7 +32,9 @@ public class Cars {
     }
 
     public void move() {
-        cars.forEach(Car::move);
+        for (Car car : cars) {
+            car.move();
+        }
     }
 
     public List<String> findWinnerCarNames() {
