@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import racingcar.strategy.RandomMovableStrategy;
 import racingcar.view.InputView;
 
 class CarsTest {
@@ -29,7 +30,7 @@ class CarsTest {
 
         // when
         List<String> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames);
+        Cars cars = Cars.from(carNames, new RandomMovableStrategy());
         carNames.add("aa");
 
         // then
@@ -43,7 +44,7 @@ class CarsTest {
         InputView inputView = new InputView();
         command("pobi,min");
         List<String> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames);
+        Cars cars = Cars.from(carNames, new RandomMovableStrategy());
 
         assertRandomNumberInRangeTest(
             () -> {
@@ -66,7 +67,7 @@ class CarsTest {
         InputView inputView = new InputView();
         command("pobi,min");
         List<String> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames);
+        Cars cars = Cars.from(carNames, new RandomMovableStrategy());
 
         assertRandomNumberInRangeTest(
             () -> {
@@ -89,7 +90,7 @@ class CarsTest {
         InputView inputView = new InputView();
         command("pobi,min");
         List<String> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames);
+        Cars cars = Cars.from(carNames, new RandomMovableStrategy());
 
         assertRandomNumberInRangeTest(
             () -> {
@@ -112,7 +113,7 @@ class CarsTest {
         InputView inputView = new InputView();
         command("pobi,min");
         List<String> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames);
+        Cars cars = Cars.from(carNames, new RandomMovableStrategy());
 
         assertRandomNumberInRangeTest(
             () -> {
@@ -134,7 +135,7 @@ class CarsTest {
         InputView inputView = new InputView();
         command("pobi,min,hwan");
         List<String> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames);
+        Cars cars = Cars.from(carNames, new RandomMovableStrategy());
 
         // when
         assertRandomNumberInRangeTest(
@@ -157,7 +158,7 @@ class CarsTest {
         InputView inputView = new InputView();
         command("pobi,min,hwan");
         List<String> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames);
+        Cars cars = Cars.from(carNames, new RandomMovableStrategy());
 
         // when
         assertRandomNumberInRangeTest(

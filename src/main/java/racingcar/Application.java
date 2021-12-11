@@ -5,13 +5,16 @@ import java.util.stream.Collectors;
 
 import racingcar.domain.Cars;
 import racingcar.dto.CarDto;
+import racingcar.strategy.MovableStrategy;
+import racingcar.strategy.RandomMovableStrategy;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class Application {
     public static void main(String[] args) {
         InputView inputView = new InputView();
-        Cars cars = Cars.from(inputView.inputCarNames());
+        MovableStrategy movableStrategy = new RandomMovableStrategy();
+        Cars cars = Cars.from(inputView.inputCarNames(), movableStrategy);
         int tryCount = inputView.inputTryCount();
         startGame(cars, tryCount);
     }

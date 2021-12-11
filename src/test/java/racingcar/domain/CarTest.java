@@ -6,6 +6,8 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import racingcar.strategy.RandomMovableStrategy;
+
 class CarTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
@@ -14,7 +16,7 @@ class CarTest {
     @DisplayName("랜덤한 값이 4이상일 경우 전진")
     void isCarMove() {
         //given
-        Car car = new Car("pobi");
+        Car car = new Car("pobi", new RandomMovableStrategy());
 
         assertRandomNumberInRangeTest(
             () -> {
@@ -31,7 +33,7 @@ class CarTest {
     @DisplayName("랜덤한 값이 4미만일 경우 변화없음")
     void isCarStop() {
         //given
-        Car car = new Car("pobi");
+        Car car = new Car("pobi", new RandomMovableStrategy());
 
         assertRandomNumberInRangeTest(
             () -> {
@@ -49,7 +51,7 @@ class CarTest {
     @DisplayName("최대 거리 자동차가 맞는 지")
     void isCarMaxPosition() {
         // given
-        Car car = new Car("pobi");
+        Car car = new Car("pobi", new RandomMovableStrategy());
         int maxPosition = 2;
 
         assertRandomNumberInRangeTest(
