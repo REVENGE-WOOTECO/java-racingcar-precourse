@@ -1,11 +1,10 @@
 package racingcar.domain;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-
-import racingcar.dto.CarDto;
 
 public class Cars {
     private static final String ERROR_DUPLICATE_NAME = "[ERROR] 동일한 이름은 입력할 수 없습니다. 다시 입력해주세요.";
@@ -51,10 +50,7 @@ public class Cars {
             .orElseThrow(() -> new IllegalArgumentException(ERROR_NOT_FIND_MAX_POSITION));
     }
 
-    public List<CarDto> toCarDtos() {
-        return cars.stream()
-            .map(CarDto::from)
-            .collect(Collectors.toList());
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
     }
-
 }

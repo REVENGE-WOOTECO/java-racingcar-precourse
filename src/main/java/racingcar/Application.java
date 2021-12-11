@@ -1,8 +1,10 @@
 package racingcar;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import racingcar.domain.Cars;
+import racingcar.dto.CarDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -18,7 +20,10 @@ public class Application {
         OutputView.printExecutionResultHeader();
         for (int i = 0; i < tryCount; i++) {
             cars.move();
-            OutputView.printEachGameState(cars.toCarDtos());
+            List<CarDto> moveResult = cars.getCars().stream()
+                .map(CarDto::from)
+                .collect(Collectors.toList());
+            OutputView.printEachGameState(moveResult);
         }
         List<String> winnerCarNames = cars.findWinnerCarNames();
         OutputView.printWinnerCarNames(winnerCarNames);
