@@ -23,9 +23,9 @@ public class InputView {
 
     public List<String> inputCarNames() {
         System.out.println(REQUEST_INPUT_CAR_NAMES);
-        List<String> carNames = splitAndTrimInputCarNames();
+        List<String> carNames = splitInputCarNames();
         while (isNotValidInputCarNames(carNames)) {
-            carNames = splitAndTrimInputCarNames();
+            carNames = splitInputCarNames();
         }
         return carNames;
     }
@@ -39,10 +39,9 @@ public class InputView {
         return Integer.parseInt(tryCount);
     }
 
-    private List<String> splitAndTrimInputCarNames() {
+    private List<String> splitInputCarNames() {
         String[] inputCarNames = Console.readLine().split(COMMA_DELIMITER, -1);
         return Arrays.stream(inputCarNames)
-            .map(String::trim)
             .collect(Collectors.toList());
     }
 
@@ -60,6 +59,7 @@ public class InputView {
 
     private void validateWhiteSpaceName(List<String> carNames) {
         boolean hasWhiteSpaceName = carNames.stream()
+            .map(String::trim)
             .anyMatch(String::isEmpty);
 
         if (hasWhiteSpaceName) {
@@ -97,7 +97,7 @@ public class InputView {
     private void validateDigit(String tryCount) {
         boolean hasLetter = tryCount.chars()
             .anyMatch(Character::isLetter);
-        
+
         if (hasLetter) {
             throw new IllegalArgumentException(ERROR_TRY_COUNT_LETTER);
         }
