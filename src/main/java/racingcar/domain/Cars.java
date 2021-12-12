@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import racingcar.dto.CarNameDto;
 import racingcar.strategy.MovableStrategy;
 
 public class Cars {
@@ -18,16 +19,17 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars from(List<String> carNames, MovableStrategy movableStrategy) {
+    public static Cars from(List<CarNameDto> carNames, MovableStrategy movableStrategy) {
         validateDuplicate(carNames);
         List<Car> cars = carNames.stream()
+            .map(CarNameDto::getName)
             .map(carName -> new Car(carName, movableStrategy))
             .collect(Collectors.toList());
         return new Cars(cars);
     }
 
-    private static void validateDuplicate(List<String> carNames) {
-        Set<String> nonDuplicateNames = new HashSet<>(carNames);
+    private static void validateDuplicate(List<CarNameDto> carNames) {
+        Set<CarNameDto> nonDuplicateNames = new HashSet<>(carNames);
         if (nonDuplicateNames.size() != carNames.size()) {
             throw new IllegalArgumentException(ERROR_DUPLICATE_NAME);
         }

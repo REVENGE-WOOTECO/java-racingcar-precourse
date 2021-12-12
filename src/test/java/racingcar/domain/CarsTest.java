@@ -4,11 +4,13 @@ import static camp.nextstep.edu.missionutils.test.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
 
 import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import racingcar.dto.CarNameDto;
 import racingcar.strategy.RandomMovableStrategy;
 import racingcar.view.InputView;
 
@@ -29,12 +31,28 @@ class CarsTest {
         command("pobi,min");
 
         // when
-        List<String> carNames = inputView.inputCarNames();
+        List<CarNameDto> carNames = inputView.inputCarNames();
         Cars cars = Cars.from(carNames, new RandomMovableStrategy());
-        carNames.add("aa");
+        carNames.add(new CarNameDto("hwan"));
 
         // then
         assertThat(cars.getCars().size()).isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("Cars에 중복된 값이 들어오면 Exception")
+    void hasCarsDuplicate() {
+        // given
+        List<CarNameDto> carNames = new ArrayList<>();
+        carNames.add(new CarNameDto("pobi"));
+        carNames.add(new CarNameDto("pobi"));
+
+        // when
+
+        // then
+        assertThatThrownBy(() -> Cars.from(carNames, new RandomMovableStrategy()))
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessageContaining("[ERROR] 동일한 이름은 입력할 수 없습니다. 다시 입력해주세요.");
     }
 
     @Test
@@ -43,7 +61,7 @@ class CarsTest {
         // given
         InputView inputView = new InputView();
         command("pobi,min");
-        List<String> carNames = inputView.inputCarNames();
+        List<CarNameDto> carNames = inputView.inputCarNames();
         Cars cars = Cars.from(carNames, new RandomMovableStrategy());
 
         assertRandomNumberInRangeTest(
@@ -66,7 +84,7 @@ class CarsTest {
         // given
         InputView inputView = new InputView();
         command("pobi,min");
-        List<String> carNames = inputView.inputCarNames();
+        List<CarNameDto> carNames = inputView.inputCarNames();
         Cars cars = Cars.from(carNames, new RandomMovableStrategy());
 
         assertRandomNumberInRangeTest(
@@ -89,7 +107,7 @@ class CarsTest {
         // given
         InputView inputView = new InputView();
         command("pobi,min");
-        List<String> carNames = inputView.inputCarNames();
+        List<CarNameDto> carNames = inputView.inputCarNames();
         Cars cars = Cars.from(carNames, new RandomMovableStrategy());
 
         assertRandomNumberInRangeTest(
@@ -112,7 +130,7 @@ class CarsTest {
         // given
         InputView inputView = new InputView();
         command("pobi,min");
-        List<String> carNames = inputView.inputCarNames();
+        List<CarNameDto> carNames = inputView.inputCarNames();
         Cars cars = Cars.from(carNames, new RandomMovableStrategy());
 
         assertRandomNumberInRangeTest(
@@ -134,7 +152,7 @@ class CarsTest {
         // given
         InputView inputView = new InputView();
         command("pobi,min,hwan");
-        List<String> carNames = inputView.inputCarNames();
+        List<CarNameDto> carNames = inputView.inputCarNames();
         Cars cars = Cars.from(carNames, new RandomMovableStrategy());
 
         // when
@@ -157,7 +175,7 @@ class CarsTest {
         // given
         InputView inputView = new InputView();
         command("pobi,min,hwan");
-        List<String> carNames = inputView.inputCarNames();
+        List<CarNameDto> carNames = inputView.inputCarNames();
         Cars cars = Cars.from(carNames, new RandomMovableStrategy());
 
         // when

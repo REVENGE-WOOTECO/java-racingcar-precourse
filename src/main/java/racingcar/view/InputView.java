@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Console;
+import racingcar.dto.CarNameDto;
 
 public class InputView {
     private static final String REQUEST_INPUT_CAR_NAMES = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -21,13 +22,15 @@ public class InputView {
     private static final int MAX_NAME_LENGTH = 5;
     private static final int MIN_COUNT_NUMBER = 1;
 
-    public List<String> inputCarNames() {
+    public List<CarNameDto> inputCarNames() {
         System.out.println(REQUEST_INPUT_CAR_NAMES);
         List<String> carNames = splitInputCarNames();
         while (isNotValidInputCarNames(carNames)) {
             carNames = splitInputCarNames();
         }
-        return carNames;
+        return carNames.stream()
+            .map(CarNameDto::new)
+            .collect(Collectors.toList());
     }
 
     public int inputTryCount() {
