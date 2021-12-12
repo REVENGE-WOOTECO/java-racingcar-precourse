@@ -19,7 +19,9 @@ public class OutputView {
     }
 
     public static void printEachGameState(List<CarDto> cars) {
-        cars.forEach(OutputView::printGameState);
+        for (CarDto car : cars) {
+            OutputView.printGameState(car);
+        }
         System.out.println();
     }
 
