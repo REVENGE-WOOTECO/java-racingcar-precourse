@@ -51,7 +51,7 @@
   + java string api의 trim 사용
 + [x] checkCarName 의 빈문자열일 경우
   + carNameLength를 확인할 때 함께 확인 가능
-+ [ ] checkCarName 의 가장 뒤에 , 가 포함된 경우
++ [x] checkCarName 의 가장 뒤에 , 가 포함된 경우
   + 정규표현식 사용
 + [ ] 하나의 클래스에만 사용할 상수라면 해당 클래스 내부에 정의하는것을 권장
   + 기능이 추가되어 상수를 의종하는 클래스가 많아지게 될 경우의 문제점!

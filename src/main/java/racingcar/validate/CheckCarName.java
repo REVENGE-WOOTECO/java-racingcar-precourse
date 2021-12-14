@@ -2,6 +2,7 @@ package racingcar.validate;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import racingcar.constant.ConstNumber;
 
@@ -32,7 +33,7 @@ public class CheckCarName {
 	}
 
 	public void checkCarNameLastComma(List<String> carNameList){
-		if (carNameList.get(carNameList.size()-1).equals(",")) {
+		if(Pattern.matches("/,$/", carNameList.toString())){
 			throw new IllegalArgumentException();
 		}
 	}
