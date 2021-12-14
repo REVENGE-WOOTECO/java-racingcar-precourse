@@ -65,7 +65,7 @@
 + [x] InputUser 클래스에서 객체를 외부에서 생성자로 주입받지 않고 내부에서 생성하는 이유?
   + inputUser에서만 사용하기 때문에 외부에서 받을 필요가 없다고 생각하여 내부에서 생성함
 + [x] RacingGame 클래스에서 LinkedList, default 생성자를 사용한 이유?
-  + 
+  + LinkedList의 경우 처음 생성할 때 삭제나 삽입이 있을것으로 예상하여 생성하게 되었는데 현재 기능상 ArrayList가 더 적절한것으로 판단하여 수정함
 + [x] RacingGame 클래스의 getWinner메소드 depth 1로 줄이기
   + stream으로 처리
 + [x] Car에서 position을 getter로 가져와 비교하고 있는데 이러한 부분을 Car 객체에게 메세지를 보내도록 수정하기

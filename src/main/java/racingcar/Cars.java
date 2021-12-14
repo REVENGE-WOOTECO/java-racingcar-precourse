@@ -1,10 +1,10 @@
 package racingcar;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cars {
-	private List<Car> carList = new LinkedList<>();
+	private List<Car> carList = new ArrayList<>();
 
 	public void getCarList(String[] inputCarName) {
 		for (String s : inputCarName) {
