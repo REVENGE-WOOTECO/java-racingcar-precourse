@@ -26,20 +26,22 @@
 ## :heavy_check_mark: 피드백 후 수정 목록
 + [x] 유효성 검증 클래스 명명 수정
   + Validation -> Validator
-+ [ ] Validator 클래스 수정
++ [x] Validator 클래스 수정
   + 생성자가 필요없는 유틸성 클래스임
-  + 유틸리티 클래스의 경우 생성자 private으로 변경
+  + 유틸리티 클래스의 경우 생성자 private으로 변경 -> 싱글톤
   + 관련글 찾아 학습
     + [유틸리티 클래스](https://spongeb0b.tistory.com/100)
     + [private 생성자](https://jinjinyang.tistory.com/34)
-+ [ ] CheckCarName, CheckPlayTime, Validator
-  + [ ] CheckCarName.validate(carNameArray) 형태가 아닌 생성자를 통해 validate하는이유?
++ [x] CheckCarName, CheckPlayTime, Validator
+  + [x] CheckCarName.validate(carNameArray) 형태가 아닌 생성자를 통해 validate하는이유?
     + 단일책임원칙
     + 생성자가 하는 역할, 책임
-  + [ ] CheckCarName, CheckPlayTime 과한 클래스 분리인가?
+  + [x] CheckCarName, CheckPlayTime 과한 클래스 분리인가?
     + tradeoff
   + CheckCarName, CheckPlayTime 클래스가 꼭 필요하다면 내부에서 new 로 생성하기 보다 validation 클래스의 인스턴스 변수로 두고 생성자를 주입받는 방법이 있을텐데 왜 new를 통해 생성하였는가?
-+ [ ] CheckPlayTime에서 생성자를 통해 validate하는 이유?
++ [x] CheckPlayTime에서 생성자를 통해 validate하는 이유
+  + 생성자를 통해 한번에 부르는것이 코드가 줄어든다고 생각하였으나 생성자의 역할과 맞지 않는다고 생각하여 수정함
+  + 생성자의 역할: 인스턴스 초기화
 + [x] 사용하지 않는 기본 생성자 삭제하기
 + [x] 클래스 내부에서만 사용하는 메서드 private으로 변경
   + 이유
@@ -60,12 +62,14 @@
   + 기능이 추가되어 상수를 의종하는 클래스가 많아지게 될 경우의 문제점!
     + 일부 클래스에 대한 정책이 변경되어 상수값을 10으로 변경하는 순간 5의 값에 의존하던 클래스들은 예기치 못한 변경으로 인해 영향을 받게 되고 리팩터링이 어려워짐
 + [x] InputUser validation 접근 제어자 default -> private 으로 변환
-+ [ ] InputUser 클래스에서 객체를 외부에서 생성자로 주입받지 않고 내부에서 생성하는 이유?
-+ [ ] RacingGame 클래스에서 LinkedList, default 생성자를 사용한 이유?
++ [x] InputUser 클래스에서 객체를 외부에서 생성자로 주입받지 않고 내부에서 생성하는 이유?
+  + inputUser에서만 사용하기 때문에 외부에서 받을 필요가 없다고 생각하여 내부에서 생성함
++ [x] RacingGame 클래스에서 LinkedList, default 생성자를 사용한 이유?
+  + 
 + [x] RacingGame 클래스의 getWinner메소드 depth 1로 줄이기
   + stream으로 처리
 + [x] Car에서 position을 getter로 가져와 비교하고 있는데 이러한 부분을 Car 객체에게 메세지를 보내도록 수정하기
-+ [ ] CarList를 Car 클래스로 랩핑하면 승자를 구하는 로직을 해당 객체에게 위임할 수 있음
++ [x] CarList를 Cars 클래스로 랩핑하면 승자를 구하는 로직을 해당 객체에게 위임할 수 있음
 + [x] RacingGame의 , 추가해주는 부분 수정
   + String method, Stream api에 쉼표 삽입 기능 학습, 적용
     + String.join(구분자,요소)
