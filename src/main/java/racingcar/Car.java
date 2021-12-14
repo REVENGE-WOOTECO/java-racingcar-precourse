@@ -31,6 +31,10 @@ public class Car {
 		printPosition();
 	}
 
+	public boolean isMaxPosition(int maxPosition){
+		return position == maxPosition;
+	}
+
 	private void move() {
 		position++;
 	}
