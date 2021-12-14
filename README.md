@@ -43,7 +43,7 @@
 + [ ] 사용하지 않는 기본 생성자를 만든 이유?
 + [ ] 클래스 내부에서만 사용하는 메서드 private으로 변경
   + 외부에서 사용하지 않는것을 public으로 열어두었을 때의 단점?
-+ [ ] checkCarName 의 List 이름 변경
++ [x] checkCarName 의 List 이름 변경
 + [ ] checkCarName 의 duplicate 확인법
   + Set, stream api활용
 + [ ] checkCarName 의 공백만 존재할경우 확인법
