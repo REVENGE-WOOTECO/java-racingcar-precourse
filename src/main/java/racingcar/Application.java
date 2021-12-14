@@ -1,7 +1,7 @@
 package racingcar;
 
 public class Application {
-	public final static String PRINT_MESSAGE_EXECUTION_RESULT = "실행결과";
+	private final static String PRINT_MESSAGE_EXECUTION_RESULT = "실행결과";
 
 	public static void main(String[] args) {
 		InputUser inputUser = new InputUser();
