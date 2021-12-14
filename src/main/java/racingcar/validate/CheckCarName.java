@@ -8,8 +8,6 @@ public class CheckCarName {
 	public final static int CAR_NAME_DUPLICATE_COUNT = 1;
 	public final static int CAR_NAME_LENGTH = 5;
 
-	public CheckCarName() {}
-
 	public CheckCarName(List<String> carNameList) {
 		checkCarNameLength(carNameList);
 		checkCarNameBlank(carNameList);
