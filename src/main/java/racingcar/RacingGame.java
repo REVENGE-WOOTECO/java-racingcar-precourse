@@ -54,12 +54,7 @@ public class RacingGame {
 	private void printWinner(List<String> winner) {
 		System.out.print(PRINT_MESSAGE_FINAL_WINNER);
 
-		for (int i = 0; i < winner.size(); i++) {
-			System.out.print(winner.get(i));
-			if (winner.size() != 1 && i != winner.size() - 1) {
-				System.out.print(", ");
-			}
-		}
+		System.out.print(String.join(", ",winner));
 	}
 
 }

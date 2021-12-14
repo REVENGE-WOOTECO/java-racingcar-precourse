@@ -66,8 +66,9 @@
   + stream으로 처리
 + [ ] Car에서 position을 getter로 가져와 비교하고 있는데 이러한 부분을 Car 객체에게 메세지를 보내도록 수정하기
 + [ ] CarList를 Car 클래스로 랩핑하면 승자를 구하는 로직을 해당 객체에게 위임할 수 있음
-+ [ ] RacingGame의 , 추가해주는 부분 수정
++ [x] RacingGame의 , 추가해주는 부분 수정
   + String method, Stream api에 쉼표 삽입 기능 학습, 적용
+    + String.join(구분자,요소)
 + [ ] Car객체를 생성할 때 이름에 대한 Length 검사가 없는 이유?
 + [ ] method depth 2에서 1로 줄이기
   + java stream api 사용
