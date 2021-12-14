@@ -23,6 +23,52 @@
     최종 우승자 : (자동차이름) 
   + 우승자가 여러명일 경우 쉼표(,)로 구분하여 출력
 
+## :heavy_check_mark: 피드백 후 수정 목록
++ [ ] 유효성 검증 클래스 명명 수정
+  + Validation -> Validator
++ [ ] Validator 클래스 수정
+  + 생성자가 필요없는 유틸성 클래스임
+  + 유틸리티 클래스의 경우 생성자 private으로 변경
+  + 관련글 찾아 학습
+    + [유틸리티 클래스](https://spongeb0b.tistory.com/100)
+    + [private 생성자](https://jinjinyang.tistory.com/34)
++ [ ] CheckCarName, CheckPlayTime, Validator
+  + [ ] CheckCarName.validate(carNameArray) 형태가 아닌 생성자를 통해 validate하는이유?
+    + 단일책임원칙
+    + 생성자가 하는 역할, 책임
+  + [ ] CheckCarName, CheckPlayTime 과한 클래스 분리인가?
+    + tradeoff
+  + CheckCarName, CheckPlayTime 클래스가 꼭 필요하다면 내부에서 new 로 생성하기 보다 validation 클래스의 인스턴스 변수로 두고 생성자를 주입받는 방법이 있을텐데 왜 new를 통해 생성하였는가?
++ [ ] CheckPlayTime에서 생성자를 통해 validate하는 이유?
++ [ ] 사용하지 않는 기본 생성자를 만든 이유?
++ [ ] 클래스 내부에서만 사용하는 메서드 private으로 변경
+  + 외부에서 사용하지 않는것을 public으로 열어두었을 때의 단점?
++ [ ] checkCarName 의 List 이름 변경
++ [ ] checkCarName 의 duplicate 확인법
+  + Set, stream api활용
++ [ ] checkCarName 의 공백만 존재할경우 확인법
+  + 현재문제: 여러 공백이 들어온 자동차 이름은 걸러낼 수 없음
+  + java string api의 trim 사용
++ [ ] checkCarName 의 빈문자열일 경우
+  + carNameLength를 확인할 때 함께 확인 가능
++ [ ] checkCarName 의 가장 뒤에 , 가 포함된 경우
+  + 정규표현식 사용
++ [ ] 하나의 클래스에만 사용할 상수라면 해당 클래스 내부에 정의하는것을 권장
+  + 기능이 추가되어 상수를 의종하는 클래스가 많아지게 될 경우의 문제점!
+    + 일부 클래스에 대한 정책이 변경되어 상수값을 10으로 변경하는 순간 5의 값에 의존하던 클래스들은 예기치 못한 변경으로 인해 영향을 받게 되고 리팩터링이 어려워짐
++ [ ] InputUser에서 default접근 제어자를 사용한 이유?
++ [ ] InputUser 클래스에서 객체를 외부에서 생성자로 주입받지 않고 내부에서 생성하는 이유?
++ [ ] RacingGame 클래스에서 LinkedList, default 생성자를 사용한 이유?
++ [ ] RacingGame 클래스의 getWinner메소드 depth 1로 줄이기
+  + stream으로 처리
++ [ ] Car에서 position을 getter로 가져와 비교하고 있는데 이러한 부분을 Car 객체에게 메세지를 보내도록 수정하기
++ [ ] CarList를 Car 클래스로 랩핑하면 승자를 구하는 로직을 해당 객체에게 위임할 수 있음
++ [ ] RacingGame의 , 추가해주는 부분 수정
+  + String method, Stream api에 쉼표 삽입 기능 학습, 적용
++ [ ] Car객체를 생성할 때 이름에 대한 Length 검사가 없는 이유?
++ [ ] method depth 2에서 1로 줄이기
+  + java stream api 사용
++ [ ] (선택) mvc패턴 학습 및 적용
 
 ## 🔍 진행방식
 
