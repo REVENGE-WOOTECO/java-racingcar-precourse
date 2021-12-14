@@ -41,8 +41,11 @@
   + CheckCarName, CheckPlayTime 클래스가 꼭 필요하다면 내부에서 new 로 생성하기 보다 validation 클래스의 인스턴스 변수로 두고 생성자를 주입받는 방법이 있을텐데 왜 new를 통해 생성하였는가?
 + [ ] CheckPlayTime에서 생성자를 통해 validate하는 이유?
 + [ ] 사용하지 않는 기본 생성자를 만든 이유?
-+ [ ] 클래스 내부에서만 사용하는 메서드 private으로 변경
-  + 외부에서 사용하지 않는것을 public으로 열어두었을 때의 단점?
++ [x] 클래스 내부에서만 사용하는 메서드 private으로 변경
+  + 이유
+    + 외부에서 값을 필요로 할 순 있지만, 그 내부 사정이 어떻게 돌아가는지 알 필요 없을 경우
+    + 보안 측면으로 자료 보호 가능
+    + 복잡한 로직을 굳이 알 필요가 없음
 + [x] checkCarName 의 List 이름 변경
 + [ ] checkCarName 의 duplicate 확인법
   + Set, stream api활용

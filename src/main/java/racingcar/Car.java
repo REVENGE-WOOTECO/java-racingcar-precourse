@@ -31,11 +31,11 @@ public class Car {
 		printPosition();
 	}
 
-	public void move() {
+	private void move() {
 		position++;
 	}
 
-	public void printPosition() {
+	private void printPosition() {
 		System.out.print(name + " : ");
 		for (int i = 0; i < position; i++) {
 			System.out.print("-");

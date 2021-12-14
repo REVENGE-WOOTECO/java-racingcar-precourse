@@ -23,13 +23,13 @@ public class RacingGame {
 		printWinner(winner);
 	}
 
-	public void getCarList(String[] inputCarName) {
+	private void getCarList(String[] inputCarName) {
 		for (String s : inputCarName) {
 			carList.add(new Car(s));
 		}
 	}
 
-	public List<String> getWinner(List<Car> carList) {
+	private List<String> getWinner(List<Car> carList) {
 		List<String> winner = new ArrayList<>();
 		for (Car car : carList) {
 			if (car.getPosition() == getMaxPosition()) {
@@ -39,7 +39,7 @@ public class RacingGame {
 		return winner;
 	}
 
-	public int getMaxPosition() {
+	private int getMaxPosition() {
 		int maxPosition = 0;
 
 		for (Car car : carList) {
@@ -51,7 +51,7 @@ public class RacingGame {
 		return maxPosition;
 	}
 
-	public void printWinner(List<String> winner) {
+	private void printWinner(List<String> winner) {
 		System.out.print(PRINT_MESSAGE_FINAL_WINNER);
 
 		for (int i = 0; i < winner.size(); i++) {

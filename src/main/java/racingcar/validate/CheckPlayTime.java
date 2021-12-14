@@ -10,7 +10,7 @@ public class CheckPlayTime {
 		checkPlayTime(playTime);
 	}
 
-	public void checkPlayTime(int playTime) {
+	private void checkPlayTime(int playTime) {
 		if (playTime < PLAY_TIME_LEAST_COUNT) {
 			throw new IllegalArgumentException();
 		}
