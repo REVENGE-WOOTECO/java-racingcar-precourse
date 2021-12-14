@@ -9,7 +9,7 @@ public class InputUser {
 	public final static String REQUEST_MESSAGE_INPUT_PLAY_TIME = "시도할 회수는 몇회인가요?";
 	public final static String ERROR_MESSAGE_WRONG_PLAY_TIME = "[ERROR] 1 이상의 숫자만 입력 가능합니다.";
 
-	Validator validation = new Validator();
+	private Validator validation = new Validator();
 
 	public String inputCarNames() {
 		String inputCarNames;

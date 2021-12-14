@@ -59,7 +59,7 @@
 + [x] 하나의 클래스에만 사용할 상수라면 해당 클래스 내부에 정의하는것을 권장
   + 기능이 추가되어 상수를 의종하는 클래스가 많아지게 될 경우의 문제점!
     + 일부 클래스에 대한 정책이 변경되어 상수값을 10으로 변경하는 순간 5의 값에 의존하던 클래스들은 예기치 못한 변경으로 인해 영향을 받게 되고 리팩터링이 어려워짐
-+ [ ] InputUser에서 default접근 제어자를 사용한 이유?
++ [x] InputUser validation 접근 제어자 default -> private 으로 변환
 + [ ] InputUser 클래스에서 객체를 외부에서 생성자로 주입받지 않고 내부에서 생성하는 이유?
 + [ ] RacingGame 클래스에서 LinkedList, default 생성자를 사용한 이유?
 + [ ] RacingGame 클래스의 getWinner메소드 depth 1로 줄이기
