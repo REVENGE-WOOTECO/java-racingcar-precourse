@@ -9,21 +9,22 @@ public class RacingGame {
 	Cars cars = new Cars();
 
 	public void playGame(String[] inputCarName, int inputPlayTime) {
-		cars.getCarList(inputCarName);
+		cars.carList(inputCarName);
 
 		for (int i = 0; i < inputPlayTime; i++) {
-			for (Car car : cars.getCarList()) {
+			for (Car car : cars.carList()) {
 				car.playOnce();
 			}
 			System.out.println();
 		}
 
-		List<String> winner = getWinner(cars.getCarList());
+		List<String> winner = getWinner(cars.carList());
 		printWinner(winner);
 	}
 
 	private List<String> getWinner(List<Car> carList) {
 		int maxPosition = cars.getMaxPosition();
+
 		return carList.stream()
 			.filter(t -> t.isMaxPosition(maxPosition))
 			.map(Car::getName)

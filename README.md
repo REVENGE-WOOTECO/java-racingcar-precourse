@@ -73,7 +73,8 @@
 + [x] RacingGame의 , 추가해주는 부분 수정
   + String method, Stream api에 쉼표 삽입 기능 학습, 적용
     + String.join(구분자,요소)
-+ [ ] Car객체를 생성할 때 이름에 대한 Length 검사가 없는 이유
++ [x] Car객체를 생성할 때 이름에 대한 Length 검사가 없는 이유
+  + inputUser에서 입력받는 값에대한 Length 검사를 진행하였기 때문에 Car객체에서는 따로 검사를 진행하지 않았습니다. 
 + [ ] method depth 2에서 1로 줄이기
   + java stream api 사용
 + [ ] (선택) mvc패턴 학습 및 적용

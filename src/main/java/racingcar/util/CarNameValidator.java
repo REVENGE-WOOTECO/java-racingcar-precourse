@@ -26,19 +26,21 @@ public class CarNameValidator {
 	}
 
 	private void checkCarNameLength(List<String> carNameList){
-		for (String s : carNameList) {
-			if (s.length() > CAR_NAME_LENGTH || s.isEmpty()) {
+		carNameList.stream()
+			.filter(carName -> carName.length() > CAR_NAME_LENGTH || carName.isEmpty())
+			.findAny()
+			.ifPresent(t -> {
 				throw new IllegalArgumentException();
-			}
-		}
+			});
 	}
 
 	private void checkCarNameBlank(List<String> carNameList){
-		for (String s : carNameList) {
-			if (s.trim().isEmpty()) {
+		carNameList.stream()
+			.filter(carName -> carName.trim().isEmpty())
+			.findAny()
+			.ifPresent(t -> {
 				throw new IllegalArgumentException();
-			}
-		}
+			});
 	}
 
 	private void checkCarNameLastComma(List<String> carNameList){

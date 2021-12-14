@@ -24,9 +24,11 @@ public class Car {
 
 	public void playOnce() {
 		int randomNumber = Randoms.pickNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
+
 		if (randomNumber >= MOVE_CONDITION_RANDOM_NUMBER) {
 			move();
 		}
+
 		printPosition();
 	}
 
@@ -40,9 +42,11 @@ public class Car {
 
 	private void printPosition() {
 		System.out.print(name + " : ");
+
 		for (int i = 0; i < position; i++) {
 			System.out.print("-");
 		}
+
 		System.out.println();
 	}
 

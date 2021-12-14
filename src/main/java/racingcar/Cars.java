@@ -2,11 +2,12 @@ package racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Cars {
 	private List<Car> carList = new ArrayList<>();
 
-	public void getCarList(String[] inputCarName) {
+	public void carList(String[] inputCarName) {
 		for (String s : inputCarName) {
 			carList.add(new Car(s));
 		}
@@ -24,7 +25,7 @@ public class Cars {
 		return maxPosition;
 	}
 
-	public List<Car> getCarList() {
+	public List<Car> carList() {
 		return carList;
 	}
 }
