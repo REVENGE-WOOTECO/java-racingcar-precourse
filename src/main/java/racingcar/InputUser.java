@@ -2,10 +2,10 @@ package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.constant.ConstMessage;
-import racingcar.validate.Validation;
+import racingcar.validate.Validator;
 
 public class InputUser {
-	Validation validation = new Validation();
+	Validator validation = new Validator();
 
 	public String inputCarNames() {
 		String inputCarNames;
