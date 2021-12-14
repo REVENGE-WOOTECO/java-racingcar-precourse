@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class RacingGame {
-	public final static String PRINT_MESSAGE_FINAL_WINNER = "최종 우승자 : ";
+	private final static String PRINT_MESSAGE_FINAL_WINNER = "최종 우승자 : ";
 
 	Cars cars = new Cars();
 
