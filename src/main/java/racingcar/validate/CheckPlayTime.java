@@ -1,8 +1,8 @@
 package racingcar.validate;
 
-import racingcar.constant.ConstNumber;
-
 public class CheckPlayTime {
+	public final static int PLAY_TIME_LEAST_COUNT = 1;
+
 	public CheckPlayTime() {
 	}
 
@@ -11,7 +11,7 @@ public class CheckPlayTime {
 	}
 
 	public void checkPlayTime(int playTime) {
-		if (playTime < ConstNumber.PLAY_TIME_LEAST_COUNT) {
+		if (playTime < PLAY_TIME_LEAST_COUNT) {
 			throw new IllegalArgumentException();
 		}
 	}

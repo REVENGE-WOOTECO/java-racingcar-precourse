@@ -4,9 +4,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import racingcar.constant.ConstNumber;
-
 public class CheckCarName {
+	public final static int CAR_NAME_DUPLICATE_COUNT = 1;
+	public final static int CAR_NAME_LENGTH = 5;
+
 	public CheckCarName() {}
 
 	public CheckCarName(List<String> carNameList) {
@@ -18,7 +19,7 @@ public class CheckCarName {
 
 	public void checkCarNameLength(List<String> carNameList){
 		for (String s : carNameList) {
-			if (s.length() > ConstNumber.CAR_NAME_LENGTH || s.isEmpty()) {
+			if (s.length() > CAR_NAME_LENGTH || s.isEmpty()) {
 				throw new IllegalArgumentException();
 			}
 		}
@@ -40,7 +41,7 @@ public class CheckCarName {
 
 	public void checkCarNameDuplicate(List<String> carNameList){
 		for (String s : carNameList) {
-			if (Collections.frequency(carNameList, s) > ConstNumber.CAR_NAME_DUPLICATE_COUNT) {
+			if (Collections.frequency(carNameList, s) > CAR_NAME_DUPLICATE_COUNT) {
 				throw new IllegalArgumentException();
 			}
 		}

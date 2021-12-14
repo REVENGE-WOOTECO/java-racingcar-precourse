@@ -1,11 +1,13 @@
 package racingcar;
 
-import java.util.Collections;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import racingcar.constant.ConstNumber;
 
 public class Car {
+	public final static int RANDOM_NUMBER_MIN = 0;
+	public final static int RANDOM_NUMBER_MAX = 9;
+	public final static int MOVE_CONDITION_RANDOM_NUMBER = 4;
+
 	private final String name;
 	private int position = 0;
 
@@ -22,8 +24,8 @@ public class Car {
 	}
 
 	public void playOnce() {
-		int randomNumber = Randoms.pickNumberInRange(ConstNumber.RANDOM_NUMBER_MIN, ConstNumber.RANDOM_NUMBER_MAX);
-		if (randomNumber >= ConstNumber.MOVE_CONDITION_RANDOM_NUMBER) {
+		int randomNumber = Randoms.pickNumberInRange(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
+		if (randomNumber >= MOVE_CONDITION_RANDOM_NUMBER) {
 			move();
 		}
 		printPosition();

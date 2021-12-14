@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import racingcar.constant.ConstMessage;
-
 public class RacingGame {
+	public final static String PRINT_MESSAGE_FINAL_WINNER = "최종 우승자 : ";
+
 	List<Car> carList = new LinkedList<>();
 
 	public void playGame(String[] inputCarName, int inputPlayTime) {
@@ -52,7 +52,7 @@ public class RacingGame {
 	}
 
 	public void printWinner(List<String> winner) {
-		System.out.print(ConstMessage.PRINT_MESSAGE_FINAL_WINNER);
+		System.out.print(PRINT_MESSAGE_FINAL_WINNER);
 
 		for (int i = 0; i < winner.size(); i++) {
 			System.out.print(winner.get(i));
