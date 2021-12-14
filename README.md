@@ -47,7 +47,7 @@
     + 보안 측면으로 자료 보호 가능
     + 복잡한 로직을 굳이 알 필요가 없음
 + [x] checkCarName 의 List 이름 변경
-+ [ ] checkCarName 의 duplicate 확인법
++ [x] checkCarName 의 duplicate 확인법
   + Set, stream api활용
 + [x] checkCarName 의 공백만 존재할경우 확인법
   + 현재문제: 여러 공백이 들어온 자동차 이름은 걸러낼 수 없음

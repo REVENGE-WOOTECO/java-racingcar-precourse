@@ -40,10 +40,8 @@ public class CheckCarName {
 	}
 
 	public void checkCarNameDuplicate(List<String> carNameList){
-		for (String s : carNameList) {
-			if (Collections.frequency(carNameList, s) > CAR_NAME_DUPLICATE_COUNT) {
-				throw new IllegalArgumentException();
-			}
+		if(carNameList.stream().distinct().count() != carNameList.size()){
+			throw new IllegalArgumentException();
 		}
 	}
 }
