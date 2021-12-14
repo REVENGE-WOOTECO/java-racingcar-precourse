@@ -27,7 +27,7 @@ public class CheckCarName {
 
 	public void checkCarNameBlank(List<String> carNameList){
 		for (String s : carNameList) {
-			if (s.equals(" ")) {
+			if (s.trim().isEmpty()) {
 				throw new IllegalArgumentException();
 			}
 		}
