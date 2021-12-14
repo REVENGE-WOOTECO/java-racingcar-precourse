@@ -10,7 +10,6 @@ public class CheckCarName {
 
 	public CheckCarName(List<String> carNameList) {
 		checkCarNameLength(carNameList);
-		checkCarNameEmpty(carNameList);
 		checkCarNameBlank(carNameList);
 		checkCarNameDuplicate(carNameList);
 		checkCarNameLastComma(carNameList);
@@ -18,15 +17,7 @@ public class CheckCarName {
 
 	public void checkCarNameLength(List<String> carNameList){
 		for (String s : carNameList) {
-			if (s.length() > ConstNumber.CAR_NAME_LENGTH ) {
-				throw new IllegalArgumentException();
-			}
-		}
-	}
-
-	public void checkCarNameEmpty(List<String> carNameList){
-		for (String s : carNameList) {
-			if (s.isEmpty()) {
+			if (s.length() > ConstNumber.CAR_NAME_LENGTH || s.isEmpty()) {
 				throw new IllegalArgumentException();
 			}
 		}

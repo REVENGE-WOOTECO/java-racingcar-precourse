@@ -49,7 +49,7 @@
 + [ ] checkCarName 의 공백만 존재할경우 확인법
   + 현재문제: 여러 공백이 들어온 자동차 이름은 걸러낼 수 없음
   + java string api의 trim 사용
-+ [ ] checkCarName 의 빈문자열일 경우
++ [x] checkCarName 의 빈문자열일 경우
   + carNameLength를 확인할 때 함께 확인 가능
 + [ ] checkCarName 의 가장 뒤에 , 가 포함된 경우
   + 정규표현식 사용
