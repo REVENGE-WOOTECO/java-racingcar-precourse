@@ -47,4 +47,11 @@ public class Car {
 		System.out.println();
 	}
 
+	@Override
+	public String toString() {
+		return "Car{" +
+			"name='" + name + '\'' +
+			", position=" + position +
+			'}';
+	}
 }

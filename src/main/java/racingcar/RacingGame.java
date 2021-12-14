@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class RacingGame {
@@ -32,15 +33,8 @@ public class RacingGame {
 	}
 
 	private List<String> getWinner(List<Car> carList) {
-		List<String> winner = new ArrayList<>();
 		int maxPosition = getMaxPosition();
-
-		for (Car car : carList) {
-			if (car.isMaxPosition(maxPosition)) {
-				winner.add(car.getName());
-			}
-		}
-		return winner;
+		return carList.stream().filter(t->t.isMaxPosition(maxPosition)).map(Car::getName).collect(Collectors.toList());
 	}
 
 	private int getMaxPosition() {

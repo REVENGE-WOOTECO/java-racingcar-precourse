@@ -62,7 +62,7 @@
 + [x] InputUser validation 접근 제어자 default -> private 으로 변환
 + [ ] InputUser 클래스에서 객체를 외부에서 생성자로 주입받지 않고 내부에서 생성하는 이유?
 + [ ] RacingGame 클래스에서 LinkedList, default 생성자를 사용한 이유?
-+ [ ] RacingGame 클래스의 getWinner메소드 depth 1로 줄이기
++ [x] RacingGame 클래스의 getWinner메소드 depth 1로 줄이기
   + stream으로 처리
 + [x] Car에서 position을 getter로 가져와 비교하고 있는데 이러한 부분을 Car 객체에게 메세지를 보내도록 수정하기
 + [ ] CarList를 Car 클래스로 랩핑하면 승자를 구하는 로직을 해당 객체에게 위임할 수 있음
