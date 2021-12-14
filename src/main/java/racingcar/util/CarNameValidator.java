@@ -1,13 +1,21 @@
-package racingcar.validate;
+package racingcar.util;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
 public class CarNameValidator {
 	public final static int CAR_NAME_DUPLICATE_COUNT = 1;
 	public final static int CAR_NAME_LENGTH = 5;
+
+	private CarNameValidator() {
+	}
+
+	private static CarNameValidator instance = new CarNameValidator();
+
+	public static CarNameValidator getInstance() {
+		return instance;
+	}
 
 	public void carNameValidator(String inputCarName) {
 		List<String> carNameList = Arrays.asList(inputCarName.split(","));
@@ -45,4 +53,6 @@ public class CarNameValidator {
 			throw new IllegalArgumentException();
 		}
 	}
+
+
 }

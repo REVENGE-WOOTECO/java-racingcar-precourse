@@ -1,8 +1,8 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.validate.CarNameValidator;
-import racingcar.validate.PlayTimeValidator;
+import racingcar.util.CarNameValidator;
+import racingcar.util.PlayTimeValidator;
 
 public class InputUser {
 	public final static String REQUEST_MESSAGE_INPUT_CAR_NAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -19,7 +19,7 @@ public class InputUser {
 			inputCarNames = Console.readLine();
 
 			try {
-				new CarNameValidator().carNameValidator(inputCarNames);
+				CarNameValidator.getInstance().carNameValidator(inputCarNames);
 				break;
 			} catch (IllegalArgumentException e) {
 				System.out.println(ERROR_MESSAGE_WRONG_CAR_NAME);
@@ -37,7 +37,7 @@ public class InputUser {
 			System.out.println(REQUEST_MESSAGE_INPUT_PLAY_TIME);
 			inputPlayTimes = Console.readLine();
 			try {
-				new PlayTimeValidator().playTimeValidator(Integer.parseInt(inputPlayTimes));
+				PlayTimeValidator.getInstance().playTimeValidator(Integer.parseInt(inputPlayTimes));
 				break;
 			} catch (IllegalArgumentException e) {
 				System.out.println(ERROR_MESSAGE_WRONG_PLAY_TIME);
