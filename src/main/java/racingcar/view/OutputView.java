@@ -26,7 +26,7 @@ public class OutputView {
     }
 
     private static void printGameState(CarDto car) {
-        String result = car.getName() + COLON + makeDash(car.getPosition());
+        String result = car.getName() + COLON + makeDash(car.getPosition().getValue());
         System.out.println(result);
     }
 

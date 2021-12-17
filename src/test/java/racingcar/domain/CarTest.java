@@ -23,7 +23,7 @@ class CarTest {
                 //when
                 car.move(new RandomMovableStrategy());
                 //then
-                assertThat(car.getPosition()).isEqualTo(1);
+                assertThat(car.getPosition()).isEqualTo(new Position(1));
             },
             MOVING_FORWARD
         );
@@ -41,7 +41,7 @@ class CarTest {
                 car.move(new RandomMovableStrategy());
 
                 //then
-                assertThat(car.getPosition()).isEqualTo(0);
+                assertThat(car.getPosition()).isEqualTo(new Position(0));
             },
             STOP
         );
@@ -52,7 +52,7 @@ class CarTest {
     void isCarMaxPosition() {
         // given
         Car car = new Car("pobi");
-        int maxPosition = 2;
+        Position maxPosition = new Position(2);
 
         assertRandomNumberInRangeTest(
             () -> {

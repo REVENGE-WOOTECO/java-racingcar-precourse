@@ -33,17 +33,17 @@ public class Cars {
     }
 
     public List<String> findWinnerCarNames() {
-        int maxPosition = findMaxPosition();
+        Position maxPosition = findMaxPosition();
         return cars.stream()
             .filter(car -> car.isMaxPosition(maxPosition))
             .map(Car::getName)
             .collect(Collectors.toList());
     }
 
-    private int findMaxPosition() {
+    private Position findMaxPosition() {
         return cars.stream()
-            .mapToInt(Car::getPosition)
-            .max()
+            .map(Car::getPosition)
+            .max(Position::compareTo)
             .orElseThrow(() -> new IllegalArgumentException(ERROR_NOT_FIND_MAX_POSITION));
     }
 

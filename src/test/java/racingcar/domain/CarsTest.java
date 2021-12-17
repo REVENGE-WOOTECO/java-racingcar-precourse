@@ -54,8 +54,8 @@ class CarsTest {
                 cars.move(new RandomMovableStrategy());
 
                 //then
-                assertThat(cars.getCars().get(0).getPosition()).isEqualTo(1);
-                assertThat(cars.getCars().get(1).getPosition()).isEqualTo(1);
+                assertThat(cars.getCars().get(0).getPosition()).isEqualTo(new Position(1));
+                assertThat(cars.getCars().get(1).getPosition()).isEqualTo(new Position(1));
             },
             MOVING_FORWARD
         );
@@ -77,8 +77,8 @@ class CarsTest {
                 cars.move(new RandomMovableStrategy());
 
                 //then
-                assertThat(cars.getCars().get(0).getPosition()).isEqualTo(1);
-                assertThat(cars.getCars().get(1).getPosition()).isEqualTo(0);
+                assertThat(cars.getCars().get(0).getPosition()).isEqualTo(new Position(1));
+                assertThat(cars.getCars().get(1).getPosition()).isEqualTo(new Position(0));
             },
             MOVING_FORWARD, STOP
         );
@@ -100,8 +100,8 @@ class CarsTest {
                 cars.move(new RandomMovableStrategy());
 
                 //then
-                assertThat(cars.getCars().get(0).getPosition()).isEqualTo(0);
-                assertThat(cars.getCars().get(1).getPosition()).isEqualTo(0);
+                assertThat(cars.getCars().get(0).getPosition()).isEqualTo(new Position(0));
+                assertThat(cars.getCars().get(1).getPosition()).isEqualTo(new Position(0));
             },
             STOP
         );
@@ -126,7 +126,7 @@ class CarsTest {
                 //then
                 Method method = cars.getClass().getDeclaredMethod("findMaxPosition");
                 method.setAccessible(true);
-                assertThat(method.invoke(cars)).isEqualTo(2);
+                assertThat(method.invoke(cars)).isEqualTo(new Position(2));
             },
             MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
         );

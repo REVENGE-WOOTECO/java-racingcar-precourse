@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import racingcar.domain.Car;
+import racingcar.domain.Position;
 
 class CarDtoTest {
 
@@ -19,7 +20,7 @@ class CarDtoTest {
 
         // then
         assertThat(carDto.getName()).isEqualTo("pobi");
-        assertThat(carDto.getPosition()).isEqualTo(0);
+        assertThat(carDto.getPosition()).isEqualTo(new Position(0));
     }
 
 }

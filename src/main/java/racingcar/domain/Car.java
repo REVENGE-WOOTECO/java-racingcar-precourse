@@ -10,12 +10,13 @@ public class Car {
     private static final int MAX_NAME_LENGTH = 5;
 
     private final String name;
-    private int position = 0;
+    private Position position;
 
     public Car(String name) {
         validateWhiteSpaceName(name);
         validateNameLength(name);
         this.name = name;
+        this.position = new Position(0);
     }
 
     private void validateWhiteSpaceName(String name) {
@@ -32,19 +33,19 @@ public class Car {
 
     public void move(MovableStrategy movableStrategy) {
         if (movableStrategy.isMovable()) {
-            position++;
+            this.position = position.movePosition();
         }
     }
 
-    public boolean isMaxPosition(int maxPosition) {
-        return position == maxPosition;
+    public boolean isMaxPosition(Position maxPosition) {
+        return position.isSamePosition(maxPosition);
     }
 
     public String getName() {
         return name;
     }
 
-    public int getPosition() {
+    public Position getPosition() {
         return position;
     }
 
