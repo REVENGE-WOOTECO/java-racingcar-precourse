@@ -4,6 +4,7 @@ import static camp.nextstep.edu.missionutils.test.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
 
 import java.io.ByteArrayInputStream;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -140,7 +141,9 @@ class CarsTest {
                 cars.move(new RandomMovableStrategy());
 
                 //then
-                assertThat(cars.findMaxPosition()).isEqualTo(2);
+                Method method = cars.getClass().getDeclaredMethod("findMaxPosition");
+                method.setAccessible(true);
+                assertThat(method.invoke(cars)).isEqualTo(2);
             },
             MOVING_FORWARD, STOP, MOVING_FORWARD, MOVING_FORWARD
         );

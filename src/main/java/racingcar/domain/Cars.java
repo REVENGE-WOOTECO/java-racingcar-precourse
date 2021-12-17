@@ -49,10 +49,10 @@ public class Cars {
             .collect(Collectors.toList());
     }
 
-    public int findMaxPosition() {
+    private int findMaxPosition() {
         return cars.stream()
-            .map(Car::getPosition)
-            .max(Integer::compare)
+            .mapToInt(Car::getPosition)
+            .max()
             .orElseThrow(() -> new IllegalArgumentException(ERROR_NOT_FIND_MAX_POSITION));
     }
 
