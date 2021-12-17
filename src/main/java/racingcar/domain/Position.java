@@ -7,8 +7,8 @@ public class Position implements Comparable<Position> {
 
     private final int value;
 
-    public Position(int position) {
-        this.value = position;
+    public Position(int value) {
+        this.value = value;
     }
 
     public Position movePosition() {
