@@ -8,14 +8,12 @@ public class Car {
     private static final int MAX_NAME_LENGTH = 5;
 
     private final String name;
-    private final MovableStrategy movableStrategy;
     private int position = 0;
 
-    public Car(String name, MovableStrategy movableStrategy) {
+    public Car(String name) {
         validateWhiteSpaceName(name);
         validateNameLength(name);
         this.name = name;
-        this.movableStrategy = movableStrategy;
     }
 
     private void validateWhiteSpaceName(String name) {
@@ -30,7 +28,7 @@ public class Car {
         }
     }
 
-    public void move() {
+    public void move(MovableStrategy movableStrategy) {
         if (movableStrategy.isMovable()) {
             position++;
         }

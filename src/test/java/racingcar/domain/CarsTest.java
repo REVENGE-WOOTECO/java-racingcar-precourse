@@ -32,7 +32,7 @@ class CarsTest {
 
         // when
         List<CarNameDto> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames, new RandomMovableStrategy());
+        Cars cars = Cars.from(carNames);
         carNames.add(new CarNameDto("hwan"));
 
         // then
@@ -50,7 +50,7 @@ class CarsTest {
         // when
 
         // then
-        assertThatThrownBy(() -> Cars.from(carNames, new RandomMovableStrategy()))
+        assertThatThrownBy(() -> Cars.from(carNames))
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("[ERROR] 동일한 이름은 입력할 수 없습니다. 다시 입력해주세요.");
     }
@@ -62,12 +62,12 @@ class CarsTest {
         InputView inputView = new InputView();
         command("pobi,min");
         List<CarNameDto> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames, new RandomMovableStrategy());
+        Cars cars = Cars.from(carNames);
 
         assertRandomNumberInRangeTest(
             () -> {
                 //when
-                cars.move();
+                cars.move(new RandomMovableStrategy());
 
                 //then
                 assertThat(cars.getCars().get(0).getPosition()).isEqualTo(1);
@@ -85,12 +85,12 @@ class CarsTest {
         InputView inputView = new InputView();
         command("pobi,min");
         List<CarNameDto> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames, new RandomMovableStrategy());
+        Cars cars = Cars.from(carNames);
 
         assertRandomNumberInRangeTest(
             () -> {
                 //when
-                cars.move();
+                cars.move(new RandomMovableStrategy());
 
                 //then
                 assertThat(cars.getCars().get(0).getPosition()).isEqualTo(1);
@@ -108,12 +108,12 @@ class CarsTest {
         InputView inputView = new InputView();
         command("pobi,min");
         List<CarNameDto> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames, new RandomMovableStrategy());
+        Cars cars = Cars.from(carNames);
 
         assertRandomNumberInRangeTest(
             () -> {
                 //when
-                cars.move();
+                cars.move(new RandomMovableStrategy());
 
                 //then
                 assertThat(cars.getCars().get(0).getPosition()).isEqualTo(0);
@@ -131,13 +131,13 @@ class CarsTest {
         InputView inputView = new InputView();
         command("pobi,min");
         List<CarNameDto> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames, new RandomMovableStrategy());
+        Cars cars = Cars.from(carNames);
 
         assertRandomNumberInRangeTest(
             () -> {
                 //when
-                cars.move();
-                cars.move();
+                cars.move(new RandomMovableStrategy());
+                cars.move(new RandomMovableStrategy());
 
                 //then
                 assertThat(cars.findMaxPosition()).isEqualTo(2);
@@ -153,13 +153,13 @@ class CarsTest {
         InputView inputView = new InputView();
         command("pobi,min,hwan");
         List<CarNameDto> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames, new RandomMovableStrategy());
+        Cars cars = Cars.from(carNames);
 
         // when
         assertRandomNumberInRangeTest(
             () -> {
                 //when
-                cars.move();
+                cars.move(new RandomMovableStrategy());
 
                 //then
                 assertThat(cars.findWinnerCarNames().size()).isEqualTo(1);
@@ -176,13 +176,13 @@ class CarsTest {
         InputView inputView = new InputView();
         command("pobi,min,hwan");
         List<CarNameDto> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames, new RandomMovableStrategy());
+        Cars cars = Cars.from(carNames);
 
         // when
         assertRandomNumberInRangeTest(
             () -> {
                 //when
-                cars.move();
+                cars.move(new RandomMovableStrategy());
 
                 //then
                 assertThat(cars.findWinnerCarNames().size()).isEqualTo(2);

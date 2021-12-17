@@ -19,11 +19,11 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars from(List<CarNameDto> carNames, MovableStrategy movableStrategy) {
+    public static Cars from(List<CarNameDto> carNames) {
         validateDuplicate(carNames);
         List<Car> cars = carNames.stream()
             .map(CarNameDto::getName)
-            .map(carName -> new Car(carName, movableStrategy))
+            .map(Car::new)
             .collect(Collectors.toList());
         return new Cars(cars);
     }
@@ -35,9 +35,9 @@ public class Cars {
         }
     }
 
-    public void move() {
+    public void move(MovableStrategy movableStrategy) {
         for (Car car : cars) {
-            car.move();
+            car.move(movableStrategy);
         }
     }
 

@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 import racingcar.domain.Cars;
 import racingcar.dto.CarDto;
-import racingcar.strategy.MovableStrategy;
 import racingcar.strategy.RandomMovableStrategy;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
@@ -13,16 +12,15 @@ import racingcar.view.OutputView;
 public class Application {
     public static void main(String[] args) {
         InputView inputView = new InputView();
-        MovableStrategy movableStrategy = new RandomMovableStrategy();
-        Cars cars = Cars.from(inputView.inputCarNames(), movableStrategy);
+        Cars cars = Cars.from(inputView.inputCarNames());
         int tryCount = inputView.inputTryCount();
         startGame(cars, tryCount);
     }
 
     private static void startGame(Cars cars, int tryCount) {
         OutputView.printExecutionResultHeader();
-        for (int i = 0; i < tryCount; i++) {
-            cars.move();
+        for (int index = 0; index < tryCount; index++) {
+            cars.move(new RandomMovableStrategy());
             List<CarDto> moveResult = cars.getCars().stream()
                 .map(CarDto::from)
                 .collect(Collectors.toList());
