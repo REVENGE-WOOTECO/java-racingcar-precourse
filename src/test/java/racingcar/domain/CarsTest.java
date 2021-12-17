@@ -5,13 +5,13 @@ import static org.assertj.core.api.Assertions.*;
 
 import java.io.ByteArrayInputStream;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import racingcar.dto.CarNameDto;
+import racingcar.dto.CarsDto;
 import racingcar.strategy.RandomMovableStrategy;
 import racingcar.view.InputView;
 
@@ -25,33 +25,16 @@ class CarsTest {
     }
 
     @Test
-    @DisplayName("Cars가 가지는 값이 불변인지 테스트")
-    void isCarsImmutable() {
-        // given
-        InputView inputView = new InputView();
-        command("pobi,min");
-
-        // when
-        List<CarNameDto> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames);
-        carNames.add(new CarNameDto("hwan"));
-
-        // then
-        assertThat(cars.getCars().size()).isEqualTo(2);
-    }
-
-    @Test
     @DisplayName("Cars에 중복된 값이 들어오면 Exception")
     void hasCarsDuplicate() {
         // given
-        List<CarNameDto> carNames = new ArrayList<>();
-        carNames.add(new CarNameDto("pobi"));
-        carNames.add(new CarNameDto("pobi"));
+        List<String> carNames = Arrays.asList("pobi", "pobi");
+        CarsDto carsDto = new CarsDto(carNames);
 
         // when
 
         // then
-        assertThatThrownBy(() -> Cars.from(carNames))
+        assertThatThrownBy(carsDto::toEntity)
             .isInstanceOf(IllegalArgumentException.class)
             .hasMessageContaining("[ERROR] 동일한 이름은 입력할 수 없습니다. 다시 입력해주세요.");
     }
@@ -62,8 +45,8 @@ class CarsTest {
         // given
         InputView inputView = new InputView();
         command("pobi,min");
-        List<CarNameDto> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames);
+        CarsDto carsDto = inputView.inputCarNames();
+        Cars cars = carsDto.toEntity();
 
         assertRandomNumberInRangeTest(
             () -> {
@@ -85,8 +68,8 @@ class CarsTest {
         // given
         InputView inputView = new InputView();
         command("pobi,min");
-        List<CarNameDto> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames);
+        CarsDto carsDto = inputView.inputCarNames();
+        Cars cars = carsDto.toEntity();
 
         assertRandomNumberInRangeTest(
             () -> {
@@ -108,8 +91,8 @@ class CarsTest {
         // given
         InputView inputView = new InputView();
         command("pobi,min");
-        List<CarNameDto> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames);
+        CarsDto carsDto = inputView.inputCarNames();
+        Cars cars = carsDto.toEntity();
 
         assertRandomNumberInRangeTest(
             () -> {
@@ -131,8 +114,8 @@ class CarsTest {
         // given
         InputView inputView = new InputView();
         command("pobi,min");
-        List<CarNameDto> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames);
+        CarsDto carsDto = inputView.inputCarNames();
+        Cars cars = carsDto.toEntity();
 
         assertRandomNumberInRangeTest(
             () -> {
@@ -155,8 +138,8 @@ class CarsTest {
         // given
         InputView inputView = new InputView();
         command("pobi,min,hwan");
-        List<CarNameDto> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames);
+        CarsDto carsDto = inputView.inputCarNames();
+        Cars cars = carsDto.toEntity();
 
         // when
         assertRandomNumberInRangeTest(
@@ -178,8 +161,8 @@ class CarsTest {
         // given
         InputView inputView = new InputView();
         command("pobi,min,hwan");
-        List<CarNameDto> carNames = inputView.inputCarNames();
-        Cars cars = Cars.from(carNames);
+        CarsDto carsDto = inputView.inputCarNames();
+        Cars cars = carsDto.toEntity();
 
         // when
         assertRandomNumberInRangeTest(
